@@ -1,0 +1,25 @@
+body {
+    background-color: #f2f8ee;
+    text-align: center;
+    color: #1f1f1e;
+}
+
+
+#BYB-name-header {
+    font-family: "Playwrite PE", cursive;
+    font-size: 25px;
+    font-weight: 300;
+    font-style: normal;
+    color: #0071BC;
+    margin-top: 0;
+  }
+
+
+#BYB-butterfly {
+    width: 200px;
+    margin: 0;
+}
+
+
+
+
