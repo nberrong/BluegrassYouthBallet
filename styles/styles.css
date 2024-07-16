@@ -107,7 +107,34 @@ ul.nav-links a {
   left: 0;
   background-color: #1f1f1e;
   visibility: visible;
-  }
+}
+
+
+
+.dropdown-menu {
+  display: block;
+  position: relative;
+  max-width: 200px;
+  display: none;
+  overflow: hidden;
+  background: white;
+}
+
+
+.dropdown-menu > ul ul {
+  float: none;
+  color: #1f1f1e;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  text-align: center;
+  padding-inline-start: 0px; 
+  position: absolute;
+}
+
+.submenu:hover > ul {
+  display: block;
+}
 
 
 main {
