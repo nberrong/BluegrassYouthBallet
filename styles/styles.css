@@ -16,7 +16,7 @@ body {
     margin: 0;
     padding: 0px;
     background-color: #f2f8ee;
-    overflow: hidden;
+    overflow: visible;
     position: fixed;
     top: 0;
     width: 100%;
@@ -57,6 +57,11 @@ ul.nav-links a {
     float: left;
 }
 
+
+.nav-links li {
+  position: relative;
+  list-style: none;
+}
 
 .nav-links li a {
     color: #1f1f1e;
@@ -112,11 +117,13 @@ ul.nav-links a {
 
 
 .dropdown-menu {
-  display: block;
-  position: relative;
-  max-width: 200px;
   display: none;
-  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  min-width: 200px;
+  padding: 10px 0;
+  display: none;
+  overflow: visible;
   background: white;
 }
 
