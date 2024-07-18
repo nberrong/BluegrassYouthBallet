@@ -4,7 +4,8 @@
 
 <html lang="en">
     <head>
-        <meta charset="utf-8">    
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">   
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Bluegrass Youth Ballet</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,20 +14,22 @@
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="styles/styles.css">
-        <link rel="stylesheet" href="styles/navbar-styles.css">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="styles/navbar.css">
 
     </head>
 
     <body>
         <nav class="topnav">
             <!-- Logo on the left -->
-            <a href='#' class="logo-link">
-                <img src="assets/logos/BYBButterfly.svg" class="logo" alt="logo">
-            </a>
-            </div>
+            <div class="logo-link mobile-header">
+                <a href='#'>
+                    <img src="assets/logos/BYBButterfly.svg" class="logo" alt="logo">
+                </a>
+                <label class="hamburger-menu">
+                    <input type="checkbox" name="hamburger" id="hamburger-icon">
+                </label> 
+                </div>
+            
             <!-- Navigation on the right -->
             <div>
                 <ul class="nav-links">
@@ -88,6 +91,7 @@
             </div>
         </div> 
 
-    </main>    
-    </body>
+    </main>
+    
+   </body>
 </html>
