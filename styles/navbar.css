@@ -6,12 +6,12 @@
 
 
 :root {
-	--bar-width: 50px;
-	--bar-height: 8px;
-	--hamburger-gap: 6px;
+	--bar-width: 3.125em;
+	--bar-height: 0.5em;
+	--hamburger-gap: 0.5em;
 	--foreground: #1f1f1e;
 	--background: #f2f8ee;
-    --hamburger-margin: 8px;
+    --hamburger-margin: 0.5em;
     --animation-timing: 200ms ease-in-out;
     --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
 }
@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 0;
-    padding: 0px;
+    padding: 0;
     background-color: #f2f8ee;
     overflow: visible;
     position: fixed;
@@ -44,8 +44,8 @@
 .topnav .logo-link {
     width: 100px;
     height: 100%;
-    padding: 5px;
-    margin-left: 50px;
+    padding: 0.3125em;
+    margin-left: 3.125em;
 }
 
 
@@ -58,14 +58,14 @@ ul.nav-links {
 	display: grid;
 	grid-auto-flow: column;
 	list-style-type: none;
-	column-gap: 20px;
+	column-gap: 1.25em;
 	padding: 0;
 }
 
 
 ul.nav-links a {
     display: block;
-    font-size: 15px;
+    font-size: 0.9375em;
     color: #1f1f1e;
     margin: 0;
     padding: 0;
@@ -78,7 +78,7 @@ ul.nav-links a {
 
 
 .nav-links li:last-child {
-    margin-right: 50px;
+    margin-right: 3.125em;
 }
 
 
@@ -91,8 +91,8 @@ ul.nav-links a {
 .nav-links li a {
     color: #1f1f1e;
     text-align: center;
-    margin: 10px 20px 20px 20px;
-    padding-bottom: 10px;
+    margin: 0.625em 1.25em 1.25em 1.25em;
+    padding-bottom: 0.625em;
     text-decoration: none;
     position: relative;
   }
@@ -108,7 +108,7 @@ ul.nav-links a {
     position: absolute;
     display: block;
     width: 100%;
-    height: 1.5px;
+    height: 0.09375em;
     bottom: 0;
     left: 0;
     background-color: #0071BC;
@@ -132,7 +132,7 @@ ul.nav-links a {
   position: absolute;
   display: block;
   width: 100%;
-  height: 1.5px;
+  height: 0.09375em;
   bottom: 0;
   left: 0;
   background-color: #1f1f1e;
@@ -144,8 +144,8 @@ ul.nav-links a {
   display: none;
   position: absolute;
   z-index: 1;
-  min-width: 210px;
-  padding: 5px 0;
+  min-width: 13.125em;
+  padding: 0.3125em 0;
   overflow: visible;
   background: white;
 }
@@ -174,17 +174,17 @@ ul.nav-links a {
 
 
 .submenu li:last-child {
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 
 .submenu li a:first-child {
-    margin-top: 20px;
+    margin-top: 1.25em;
 }
 
 
 .submenu li a:last-child {
-    margin-bottom: 10px;
+    margin-bottom: 0.625em;
 }
 
 
