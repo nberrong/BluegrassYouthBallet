@@ -38,16 +38,34 @@ body {
 }
 
 #navbar_logo {
-    width: 85px;
-    margin-top: 0px;
+    width: 110px;
+    margin: 0px;
 }
+
+
+#navbar_logo_text{
+    margin-bottom: 15px;
+}
+
 
 #navbar_logo_name {
     font-family: "Playwrite PE", cursive;
-    font-size: 20px;
-    font-weight: 200;
+    font-size: 24px;
+    font-weight: 400;
     margin-top: 10px;
+    margin-bottom: 5px;
 }
+
+
+#navbar_tagline {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: normal;
+    color: #1f1f1e;
+    margin: 0;
+    padding-bottom: 10px;
+  }  
 
 a#navbar_logo_link {
     text-decoration: none;
@@ -59,15 +77,15 @@ a#navbar_logo_link {
 .topnav-links {
     display: flex;
     flex-direction: row;
-    padding-top: 25px;
-    margin: 0;
+    padding: 0;
+    margin-top: 10px;
     list-style-type: none;
 }
 
 
 .topnav-links a {
     display: block;
-    font-size: 0.9375em;
+    font-size: 16px;
     color: #1f1f1e;
     margin: 0;
     padding: 0;
