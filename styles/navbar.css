@@ -2,21 +2,8 @@ body {
     margin: 0;
 }
 
-&__links {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
 
-
-&__item {
-    list-style-type: none;
-}
-
-
-.topnav-wrapper {
+.topnav {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,36 +17,58 @@ body {
     width: 100%;
 }
 
-  
+
+.topnav__button {
+    --button-color: #1f1f1e;
+    display: none;
+    align-items: right;
+    margin-inline-start: auto;
+    margin-bottom: 10px;
+    margin-block-end: 2rem;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+
+.topnav__links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
 #navbar_logo_link {
     display: flex;
     flex-direction: row;
-    margin-left: 1.5em;
+    margin-left: 1em;
 }
 
 #navbar_logo {
-    width: 110px;
+    width: 85px;
     margin: 0px;
 }
 
 
 #navbar_logo_text{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 
 #navbar_logo_name {
     font-family: "Playwrite PE", cursive;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 5px;
 }
 
 
 #navbar_tagline {
     font-family: "Comfortaa", sans-serif;
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 300;
     font-style: normal;
     color: #1f1f1e;
@@ -72,18 +81,20 @@ a#navbar_logo_link {
     color: #0071BC;
 }
 
+button {
+    display: none;
+}
 
-
-.topnav-links {
+.topnav__links {
     display: flex;
     flex-direction: row;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 0px;
     list-style-type: none;
 }
 
 
-.topnav-links a {
+.topnav__links a {
     display: block;
     font-size: 16px;
     color: #1f1f1e;
@@ -97,32 +108,32 @@ a#navbar_logo_link {
 }
 
 
-.topnav-links li:last-child {
-    margin-right: 1.5em;
+.topnav__links li:last-child {
+    margin-right: 1em;
 }
 
 
-.topnav-links li {
+.topnav__links li {
     position: relative;
 }
 
 
-.topnav-links li a {
+.topnav__links li a {
     color: #1f1f1e;
     text-align: center;
-    margin: 0.625em 1.25em 1.25em 1.25em;
+    margin: 0em 0 0 1.25em;
     padding-bottom: 0.625em;
     text-decoration: none;
     position: relative;
   }
 
 
-.topnav-links a:hover {
+.topnav__links a:hover {
     color: #1f1f1e;
 }
 
 
-.topnav-links a::before {
+.topnav__links a::before {
     content: "";
     position: absolute;
     display: block;
@@ -136,17 +147,17 @@ a#navbar_logo_link {
   }
   
   
-.topnav-links a:hover::before {
+.topnav__links a:hover::before {
     transform: scaleX(1);
   }
 
 
-.topnav-links a:hover::after {
+.topnav__links a:hover::after {
     width: 100%;
   }
   
   
-.topnav-links a.active:after {
+.topnav__links a.active:after {
   content: "";
   position: absolute;
   display: block;
@@ -200,4 +211,65 @@ a#navbar_logo_link {
 
 .has_submenu li a:last-child {
     margin-bottom: 0.625em;
+}
+
+
+@media screen and (max-width: 1100px) {
+
+.topnav__button {
+    display: block;
+    --button-color: #1f1f1e;
+    margin-top: 0px;
+    z-index: 2;
+    }
+
+
+      
+.topnav__button .line {
+        transition: y 300ms ease-in 300ms, rotate 300ms ease-in, opacity 0ms 300ms;
+        transform-origin: center;
+      }
+      
+
+      .topnav__button[aria-expanded="true"] .line {
+        transition: y 300ms ease-in, rotate 300ms ease-in 300ms, opacity 0ms 300ms;
+      }
+      
+      .topnav__button[aria-expanded="true"] :is(.top, .bottom) {
+        y: 45;
+      }
+      
+      .topnav__button[aria-expanded="true"] .top {
+        rotate: 45deg;
+      }
+      
+      .topnav__button[aria-expanded="true"] .middle {
+        opacity: 0;
+      }
+      
+      .topnav__button[aria-expanded="true"] .bottom {
+        rotate: -45deg;
+      }
+      
+
+      
+
+.topnav__menu {
+    position: fixed;
+    inset: 0;
+    padding: 1.5rem;
+    background-color: white;
+    height: min-content;
+}
+
+
+.topnav__links {
+    flex-direction: column;
+  }
+
+
+  .topnav__links li:last-child {
+    margin-bottom: 1.5em;
+}
+
 }

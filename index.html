@@ -16,44 +16,56 @@
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/navbar.css">
 
+
+
     </head>
 
     <body>
-            <header class="topnav-wrapper">
+            <header class="topnav wrapper">
                 <!-- Logo on the left -->
                     <a href='#' id="navbar_logo_link">
                         <img src="assets/logos/BYBButterfly.svg" id="navbar_logo" alt="BYB Logo">
                         <div id="navbar_logo_text">
-                            <h1 id="navbar_logo_name">Bluegrass Youth Ballet</h1>
-                            <h2 id="navbar_tagline">be <span class="gold-text">brave</span> not <span class="blue-text">perfect</span></h2>
+                            <p id="navbar_logo_name">Bluegrass Youth Ballet</p>
+                            <p id="navbar_tagline">be <span class="gold-text">brave</span> not <span class="blue-text">perfect</span></p>
                         </div>
                     </a>
             
                 <!-- Navigation on the right -->
                 <nav>
-                    <ul class="topnav-links">
-                            <li class="topnav_item"><a class="active" href="#home">Home</a></li>
+                    <span id="nav-label" hidden>Navigation</span>
+                    <div class="topnav__menu">
+                    <button class="topnav__button" aria-label="Toggle mobile menu button" 
+                    aria-expanded="false" aria-labelledby="nav-label">
+                            <svg fill="var(--button-color)" class="hamburger" viewBox="0 0 100 100" width="40">
+                                <rect class="line top" width="80" height="10" x="10" y="25" rx="5">
+                                </rect>
+                                <rect class="line middle" width="80" height="10" x="10" y="45" rx="5">
+                                </rect>
+                                <rect class="line bottom" width="80" height="10" x="10" y="65" rx="5">
+                                </rect>
+                            </svg>
+                        </button>
+                    
+                        <ul class="topnav__links">
+                            <li class="topnav__item"><a class="active" href="#home">Home</a></li>
 
-                            <li class="has_submenu topnav_item">
-                                <a href="#about">About</a>
+                            <li class="has_submenu topnav__item">
+                                <a href="#about" class="topnav__link">About</a>
                         
                                 <ul class="topnav-submenu">
                                     <li class="dropdown_item"><a href="#about-us">About Us</a></li>
+                                    <li class="dropdown_item"><a href="#staff">Staff</a></li>
                                     <li class="dropdown_item"><a href="#board-directors">Board of Directors</a></li>
+                                    <li class="dropdown_item"><a href="#common-questions">Common Questions</a></li>                                        
                                     <li class="dropdown_item"><a href="#contact-us">Contact Us</a></li>
                                 </ul>
                             </li>
                                         
-                            <li class="topnav_item"><a href="#registration">Registration</a></li>
-                    
-                            <li class="has_submenu topnav_item">
-                                <a href="#student-info">Student Information</a>
+                            <li class="has_submenu topnav__item">
+                                <a href="#class-info" class="topnav__link">Class Information</a>
                         
                                 <ul class="topnav-submenu">
-                                    <li class="dropdown_item"><a href="#class-schedules">Class Schedules</a></li>    
-                                    <li class="dropdown_item"><a href="#evaluations">Dancer Evaluations</a></li>
-                                    <li class="dropdown_item"><a href="#report-absence">Report Absence</a></li>
-                                    <li class="dropdown_item"><a href="#common-questions">Common Questions</a></li>
                                     <li class="dropdown_item"><a href="#rules">Rules and Policies</a></li>
                                     <li class="dropdown_item"><a href="#boutique">Boutique</a></li>
                                     <li class="dropdown_item"><a href="#tap">Tuition Assistance</a></li>
@@ -62,9 +74,21 @@
                     
                             </li>
 
-                            <li class="topnav_item"><a href="#performances">Performances</a></li>
+                            <li class="has_submenu topnav__item">
+                                <a href="#fall-2024" class="topnav__link">Fall 2024</a>
+                        
+                                <ul class="topnav-submenu">
+                                    <li class="dropdown_item"><a href="#class-schedules">Class Schedules</a></li>    
+                                    <li class="dropdown_item"><a href="#calendar">2024-25 Calendar</a></li>
+                                    <li class="dropdown_item"><a href="#report-absence">Report Absence</a></li>
+                                    <li class="dropdown_item"><a href="#registration">Class Registration</a></li>      
+                                </ul>                    
+                            </li>
+                            
+                            
+                            <li class="topnav__item"><a href="#performances" class="topnav__link">Performances</a></li>
 
-                            <li class="has_submenu topnav_item"><a href="#support">Support</a>
+                            <li class="has_submenu topnav__item"><a href="#support" class="topnav__link">Support</a>
                                 <ul class="topnav-submenu open-left">
                                     <li class="dropdown_item"><a href="#donors">Donors and Sponsors</a></li>
                                     <li class="dropdown_item"><a href="#merchandise">Merchandise</a></li>
@@ -73,9 +97,9 @@
                             </li>
 
                         </ul>
+                    </div>
                     </nav> 
             </header>
-            </div>
         
 
 
@@ -91,6 +115,6 @@
         </div> 
 
     </main>
-    
    </body>
+   <script src="scripts/navbar.js"></script>
 </html>
