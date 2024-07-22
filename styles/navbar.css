@@ -52,10 +52,13 @@ body {
 
 .topnav__links {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     align-items: center;
     margin: 0;
     padding: 0;
+    flex-direction: row;
+    margin-top: 0px;
+    list-style-type: none;
 }
 
 
@@ -102,14 +105,6 @@ a#navbar_logo_link {
 
 button {
     display: none;
-}
-
-.topnav__links {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin-top: 0px;
-    list-style-type: none;
 }
 
 
@@ -164,7 +159,7 @@ button {
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
-  
+
   
 .topnav__links a:hover::before {
     transform: scaleX(1);
@@ -189,7 +184,7 @@ button {
 }
 
 
-.topnav-submenu {
+.topnav__submenu {
   display: none;
   position: absolute;
   z-index: 1;
@@ -200,6 +195,12 @@ button {
   color: #1f1f1e;
   list-style: none;
   text-decoration: none;
+  margin-top: 1em;
+ }
+
+
+.topnav__links li a {
+    margin: 0;
 }
 
 
@@ -213,12 +214,24 @@ button {
 .has_submenu:hover > ul {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: nowrap;
+    padding: 0.5em;
 }
 
 
+.has_submenu:hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    padding: 1em;
+    height: 30px;
+    margin-bottom: -30px;
+  }
+  
+
 .has_submenu li:last-child {
+    align-items: flex-end;
     margin-right: 0;
 }
 
@@ -290,16 +303,12 @@ button {
 .topnav__links {
     flex-direction: column;
     margin-top: 0.25em;
+    gap: 1em;
   }
 
 
   .topnav__links li:last-child {
     margin-bottom: 0;
 }
-
-
-.topnav__links li a {
-   margin: 0;
-  }
 
 }
