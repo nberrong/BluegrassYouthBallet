@@ -1,6 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
 }
+
+
+.topnav-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height:  100px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #f2f8ee;
+}
+
 
 
 .topnav {
@@ -216,11 +235,25 @@ button {
 
 @media screen and (max-width: 1100px) {
 
+    
+    
+    .topnav__menu {
+        position: absolute;
+        right: 0;
+        top: 99.5px;
+         padding: 1.5rem;
+         background-color: white;
+         width: 100vw;
+         height: min-content;
+     }
+     
+
+
 .topnav__button {
-    display: block;
+   display: block;
+   margin: auto;
     --button-color: #1f1f1e;
-    margin-top: 0px;
-    z-index: 2;
+    margin-right: 1em;
     }
 
 
@@ -254,22 +287,19 @@ button {
 
       
 
-.topnav__menu {
-    position: fixed;
-    inset: 0;
-    padding: 1.5rem;
-    background-color: white;
-    height: min-content;
-}
-
-
 .topnav__links {
     flex-direction: column;
+    margin-top: 0.25em;
   }
 
 
   .topnav__links li:last-child {
-    margin-bottom: 1.5em;
+    margin-bottom: 0;
 }
+
+
+.topnav__links li a {
+   margin: 0;
+  }
 
 }
