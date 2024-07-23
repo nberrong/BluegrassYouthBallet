@@ -33,9 +33,8 @@
             
                 <!-- Navigation on the right -->
                 <nav>
-                    <span id="nav-label" hidden>Navigation</span>
-                    <button class="topnav__button" aria-label="Toggle mobile menu button" 
-                    aria-expanded="false" aria-labelledby="nav-label">
+                    <button aria-controls="primary-navigation" class="topnav__button" 
+                    aria-expanded="false">
                             <svg fill="var(--button-color)" class="hamburger" viewBox="0 0 100 100" width="50">
                                 <rect class="line top" width="80" height="10" x="10" y="25" rx="5">
                                 </rect>
@@ -44,11 +43,12 @@
                                 <rect class="line bottom" width="80" height="10" x="10" y="65" rx="5">
                                 </rect>
                             </svg>
+                            <span class="sr-only">Menu</span>
                         </button>
                     
                         <div class="topnav__menu">
                     
-                        <ul class="topnav__links">
+                        <ul id="primary-navigation" data-visible="false" class="topnav__links">
                             <li class="topnav__item"><a class="active" href="#home">Home</a></li>
 
                             <li class="has_submenu topnav__item">
