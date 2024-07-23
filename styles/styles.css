@@ -1,61 +1,54 @@
 *,
 *::after,
 *::before {
-	  box-sizing: border-box;
+	box-sizing: border-box;
 }
-
 
 body {
-    font-family: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif;
-    background-color: #f2f8ee;
-    text-align: center;
-    color: #1f1f1e;
-    margin: 0;
-    padding: 0;
+	font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+		Tahoma, sans-serif;
+	background-color: #f2f8ee;
+	text-align: center;
+	color: #1f1f1e;
+	margin: 0;
+	padding: 0;
 }
-
 
 main {
-    margin-top: 7.5em;
+	margin-top: 7.5em;
 }
-  
 
 #logo-header {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
-
 
 #BYB-name-header {
-    font-family: "Playwrite PE", cursive;
-    font-size: 3.75em;
-    font-weight: 300;
-    font-style: normal;
-    color: #0071BC;
-    margin: 1.25em 0;
-  }
+	font-family: 'Playwrite PE', cursive;
+	font-size: 3.75em;
+	font-weight: 300;
+	font-style: normal;
+	color: #0071bc;
+	margin: 1.25em 0;
+}
 
-
- #BYB-tagline {
-    font-family: "Comfortaa", sans-serif;
-    font-size: 2.5em;
-    font-weight: 300;
-    font-style: normal;
-  }  
-
+#BYB-tagline {
+	font-family: 'Comfortaa', sans-serif;
+	font-size: 2.5em;
+	font-weight: 300;
+	font-style: normal;
+}
 
 #BYB-butterfly {
-    width: 18.75em;
-    margin: 0;
+	width: 18.75em;
+	margin: 0;
 }
-
 
 .gold-text {
-    color: #fbb038;
+	color: #fbb038;
 }
 
-
 .blue-text {
-    color: #0071BC;
+	color: #0071bc;
 }
