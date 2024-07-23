@@ -21,5 +21,7 @@ function handleClick(e) {
 	if (e.target.matches('a')) {
 		links.forEach((link) => link.classList.remove('active'));
 		e.target.classList.add('active');
+		primaryNav.setAttribute('data-visible', 'false');
+		navButton.setAttribute('aria-expanded', 'false');
 	}
 }
