@@ -168,6 +168,7 @@ a#navbar_logo_link {
 
 .topnav__links li a,
 .topnav__links li button {
+	display: flex;
 	color: #1f1f1e;
 	text-align: center;
 	margin: 0;
@@ -276,10 +277,11 @@ a#navbar_logo_link {
 	}
 
 	.topnav__button {
-		display: block;
+		display: flex;
 		position: relative;
 		--button-color: #1f1f1e;
 		align-items: center;
+		justify-content: center;
 		margin-right: 0.5em;
 		background: none;
 		border: none;
@@ -314,6 +316,13 @@ a#navbar_logo_link {
 
 	.topnav__links li:last-child {
 		margin-bottom: 0;
+	}
+
+	.topnav__links li a,
+	.topnav__links li button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.topnav__submenu[data-visible='true'] {
