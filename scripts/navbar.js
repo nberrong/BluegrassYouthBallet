@@ -3,6 +3,23 @@ const navButton = document.querySelector('.topnav__button');
 const list = document.querySelector('nav .topnav__menu ul');
 const links = list.querySelectorAll('a');
 
+let accordion = document.querySelectorAll('.submenu-button');
+
+for (let i = 0; i < accordion.length; i++) {
+	const accordionOpen = accordion[i].getAttribute('aria-expanded');
+	const submenu = accordion[i].nextElementSibling;
+
+	if (accordionOpen === 'false') {
+		accordion[i].addEventListener('click', function () {
+			accordion[i].setAttribute('aria-expanded', 'true');
+			submenu.setAttribute('data-visible', 'true');
+		});
+	} else {
+		accordion[i].setAttribute('aria-expanded', 'false');
+		submenu.setAttribute('data-visible', 'false');
+	}
+}
+
 list.addEventListener('click', handleClick);
 
 navButton.addEventListener('click', () => {

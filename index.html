@@ -86,15 +86,18 @@
 						data-visible="false"
 						class="topnav__links"
 					>
-						<li class="topnav__item">
-							<a class="topnav__link" href="#home">Home</a>
-						</li>
-
 						<li class="has_submenu topnav__item">
-							<a href="#about" class="topnav__link">About</a>
-
-							<ul class="topnav__submenu">
-								<li class="dropdown__item"><a href="#about-us">About Us</a></li>
+							<button
+								type="button"
+								aria-expanded="false"
+								class="topnav__link submenu-button"
+							>
+								About
+							</button>
+							<ul class="topnav__submenu" data-visible="false">
+								<li class="dropdown__item">
+									<a href="#about-us">About Us</a>
+								</li>
 								<li class="dropdown__item"><a href="#staff">Staff</a></li>
 								<li class="dropdown__item">
 									<a href="#board-directors">Board of Directors</a>
@@ -109,13 +112,21 @@
 						</li>
 
 						<li class="has_submenu topnav__item">
-							<a href="#class-info" class="topnav__link">Class Information</a>
+							<button
+								type="button"
+								aria-expanded="false"
+								class="topnav__link submenu-button"
+							>
+								Class Information
+							</button>
 
-							<ul class="topnav__submenu">
+							<ul class="topnav__submenu" data-visible="false">
 								<li class="dropdown__item">
 									<a href="#rules">Rules and Policies</a>
 								</li>
-								<li class="dropdown__item"><a href="#boutique">Boutique</a></li>
+								<li class="dropdown__item">
+									<a href="#boutique">Boutique</a>
+								</li>
 								<li class="dropdown__item">
 									<a href="#tap">Tuition Assistance</a>
 								</li>
@@ -126,9 +137,15 @@
 						</li>
 
 						<li class="has_submenu topnav__item">
-							<a href="#fall-2024" class="topnav__link">Fall 2024</a>
+							<button
+								type="button"
+								aria-expanded="false"
+								class="topnav__link submenu-button"
+							>
+								Fall 2024
+							</button>
 
-							<ul class="topnav__submenu">
+							<ul class="topnav__submenu" data-visible="false">
 								<li class="dropdown__item">
 									<a href="#class-schedules">Class Schedules</a>
 								</li>
@@ -148,8 +165,14 @@
 							<a href="#performances" class="topnav__link">Performances</a>
 						</li>
 
-						<li class="has_submenu topnav__item">
-							<a href="#support" class="topnav__link">Support</a>
+						<li class="has_submenu topnav__item" data-visible="false">
+							<button
+								type="button"
+								aria-expanded="false"
+								class="topnav__link submenu-button"
+							>
+								Support
+							</button>
 							<ul class="topnav__submenu open-left">
 								<li class="dropdown__item">
 									<a href="#donors">Donors and Sponsors</a>
