@@ -1,3 +1,5 @@
+'use strict';
+
 const primaryNav = document.querySelector('.topnav__links');
 const navButton = document.querySelector('.topnav__button');
 const list = document.querySelector('nav .topnav__menu ul');

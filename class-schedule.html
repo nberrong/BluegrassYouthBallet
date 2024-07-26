@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>BYB Class Schedules</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Playwrite+PE:wght@100..400&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" href="styles/styles.css" />
+		<link rel="stylesheet" href="styles/navbar.css" />
+	</head>
+
+	<body>
+		<header></header>
+
+		<main>
+			<div id="level-menu">
+				<h1>Class Schedule Finder</h1>
+				<p>Please selection options below to see class schedules.</p>
+
+				<div id="options-wrapper">
+					<div class="level-selector">
+						<label for="class-level">Choose a level:</label>
+						<select name="class-level" id="class-level">
+							<option value="prepro">Pre-Professional</option>
+							<option value="adv">Advanced</option>
+						</select>
+					</div>
+					<div id="contemp-selector">
+						<label for="show-contemp">Show contemporary classes?</label>
+						<input
+							type="checkbox"
+							id="show-contemp"
+							name="show-contemp"
+							value="yes"
+							unchecked
+						/>
+					</div>
+					<div id="boys-selector">
+						<label for="show-boys">Show boys classes?</label>
+						<input
+							type="checkbox"
+							id="show-boys"
+							name="show-boys"
+							value="yes"
+							unchecked
+						/>
+					</div>
+					<div class="button-wrapper">
+						<button id="generate-schedule">Show Schedule</button>
+						<button id="clear-button">Clear Schedule</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="schedule-card-container"></div>
+		</main>
+	</body>
+
+	<!--	<script src="scripts/navbar.js"></script>-->
+	<script scr="scripts/main.js"></script>
+</html>
