@@ -1,41 +1,30 @@
 'use strict';
 
-const { google } = require('googleapis');
-const keys = require('../keys.json');
+import config from './config.js';
 
-const client = new google.auth.JWT(keys.client_email, null, keys.private_key, [
-	'https://www.googleapis.com/auth/spreadsheets',
-]);
+// required API call - Google Sheets API
+function getSchedule() {
+	return fetch(
+		`https://sheets.googleapis.com/v4/spreadsheets/${config.SHEET_ID}/values/${config.SHEET_NAME}?key=${config.API_KEY}`
+	)
+		.then((response) => response.json())
+		.then((data) => {
+			return data.values;
+		});
+}
 
-let fullSchedule;
-
-client.authorize(function (err, tokens) {
-	if (err) {
-		console.log(err);
-		return;
-	} else {
-		console.log('Connected!');
-		getSchedData(client);
-	}
+getSchedule().then((schedule) => {
+	let level = 'Pre-Professional A';
+	let fullSchedule = formatSchedule(schedule);
+	console.log(fullSchedule);
+	buildTable(fullSchedule);
 });
 
-async function getSchedData(client) {
-	// get data from spreadsheet
-	const sheetsAPI = google.sheets({ version: 'v4', auth: client });
-	const options = {
-		spreadsheetId: '18_lJ-94FCqvVl1DiHL2Abw3TgyrD3nV9uOLrpdGVdZY',
-		range: 'Main',
-	};
-	let scheduleData = await sheetsAPI.spreadsheets.values.get(options);
-
-	scheduleData = scheduleData.data.values;
-
-	//create JSON object from schedule array
-
-	//get keys from spreadsheet header
-	let keys = scheduleData[0];
+//schedule display functions begin here
+function formatSchedule(sch) {
+	let keys = sch[0];
 	//remove keys from main array
-	let scheduleArray = scheduleData.slice(1, scheduleData.length);
+	let scheduleArray = sch.slice(1, sch.length);
 
 	let formattedSchedule = [],
 		data = scheduleArray,
@@ -51,16 +40,31 @@ async function getSchedData(client) {
 	return formattedSchedule;
 }
 
-console.log(fullSchedule);
+function filterLevel(sch) {
+	if (sch.level === 'Pre-Professional A') {
+		return true;
+	} else {
+		return false;
+	}
 
-// function filterByLevel(item) {
-//	if (item.level === 'Pre-Professional A') {
-//		return true;
-//	} else {
-//		return false;
-//	}
-// }
+	let scheduleByLevel = fullSchedule.filter(filterLevel(fullSchedule));
+}
 
-// const scheduleByLevel = fullSchedule.filter(filterByLevel);
+function buildTable(data) {
+	let tbodyEl = document.getElementById('schedule-data-table');
+	let rowEl = document.createElement('tr');
 
-// console.log(scheduleByLevel);
+	for (let i = 0; i < data.length; i++) {
+		rowEl.className = 'class-row';
+		tbodyEl.innerHTML += `<tr>
+						<td id="day-cell">${data[i].day}</td>
+						<td id="type-cell">${data[i].type}</td>
+						<td id="start-cell">${data[i].start}</td>
+						<td id="end-cell">${data[i].end}</td>
+						<td id="studio-cell">${data[i].studio}</td>
+						<td id="instructor-cell">${data[i].instructor}</td>
+				   </tr>
+		`;
+		tbodyEl.insertRow(-1);
+	}
+}
