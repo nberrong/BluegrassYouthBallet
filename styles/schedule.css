@@ -1,0 +1,33 @@
+.schedule-card-wrapper {
+	width: min(600px, 100% - 3rem);
+	margin-inline: auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	background: hsl(37 96% 60%);
+}
+
+caption,
+th,
+td {
+	padding: 1rem;
+}
+
+caption {
+	text-align: center;
+	background: #127bbf;
+	color: white;
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+th,
+td {
+	text-align: left;
+}
+
+tbody .class-row tr:nth-of-type() {
+	background: white;
+}

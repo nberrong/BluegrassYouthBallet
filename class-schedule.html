@@ -19,10 +19,175 @@
 
 		<link rel="stylesheet" href="styles/styles.css" />
 		<link rel="stylesheet" href="styles/navbar.css" />
+		<link rel="stylesheet" href="styles/schedule.css" />
 	</head>
 
 	<body>
-		<header></header>
+		<header class="topnav wrapper">
+			<!-- Logo on the left -->
+			<a href="#" id="navbar_logo_link">
+				<img
+					src="assets/logos/BYBButterfly.svg"
+					id="navbar_logo"
+					alt="BYB Logo"
+				/>
+				<div id="navbar_logo_text">
+					<p id="navbar_logo_name">Bluegrass Youth Ballet</p>
+					<p id="navbar_tagline">
+						be <span class="gold-text">brave</span> not
+						<span class="blue-text">perfect</span>
+					</p>
+				</div>
+			</a>
+
+			<!-- Navigation on the right -->
+			<nav>
+				<button
+					aria-controls="primary-navigation"
+					class="topnav__button"
+					aria-expanded="false"
+				>
+					<svg
+						fill="var(--button-color)"
+						class="hamburger"
+						viewBox="0 0 100 100"
+						width="50"
+					>
+						<rect
+							class="line top"
+							width="80"
+							height="10"
+							x="10"
+							y="25"
+							rx="5"
+						></rect>
+						<rect
+							class="line middle"
+							width="80"
+							height="10"
+							x="10"
+							y="45"
+							rx="5"
+						></rect>
+						<rect
+							class="line bottom"
+							width="80"
+							height="10"
+							x="10"
+							y="65"
+							rx="5"
+						></rect>
+					</svg>
+					<span class="sr-only">Menu</span>
+				</button>
+
+				<div class="topnav__menu">
+					<ul
+						id="primary-navigation"
+						data-visible="false"
+						class="topnav__links"
+					>
+						<li class="has_submenu topnav__item">
+							<button
+								type="button"
+								aria-expanded="false"
+								class="topnav__link submenu-button"
+							>
+								About
+							</button>
+							<ul class="topnav__submenu" data-visible="false">
+								<li class="dropdown__item">
+									<a href="#about-us">About Us</a>
+								</li>
+								<li class="dropdown__item"><a href="#staff">Staff</a></li>
+								<li class="dropdown__item">
+									<a href="#board-directors">Board of Directors</a>
+								</li>
+								<li class="dropdown__item">
+									<a href="#common-questions">Common Questions</a>
+								</li>
+								<li class="dropdown__item">
+									<a href="#contact-us">Contact Us</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="has_submenu topnav__item">
+							<button
+								type="button"
+								aria-expanded="false"
+								class="topnav__link submenu-button"
+							>
+								Class Information
+							</button>
+
+							<ul class="topnav__submenu" data-visible="false">
+								<li class="dropdown__item">
+									<a href="#rules">Rules and Policies</a>
+								</li>
+								<li class="dropdown__item">
+									<a href="#boutique">Boutique</a>
+								</li>
+								<li class="dropdown__item">
+									<a href="#tap">Tuition Assistance</a>
+								</li>
+								<li class="dropdown__item">
+									<a href="#agreements">Financial Agreements</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="has_submenu topnav__item">
+							<button
+								type="button"
+								aria-expanded="false"
+								class="topnav__link submenu-button"
+							>
+								Fall 2024
+							</button>
+
+							<ul class="topnav__submenu" data-visible="false">
+								<li class="dropdown__item">
+									<a href="class-schedule.html">Class Schedules</a>
+								</li>
+								<li class="dropdown__item">
+									<a href="#calendar">2024-25 Calendar</a>
+								</li>
+								<li class="dropdown__item">
+									<a href="#report-absence">Report Absence</a>
+								</li>
+								<li class="dropdown__item">
+									<a href="#registration">Class Registration</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="topnav__item">
+							<a href="#performances" class="topnav__link">Performances</a>
+						</li>
+
+						<li class="has_submenu topnav__item" data-visible="false">
+							<button
+								type="button"
+								aria-expanded="false"
+								class="topnav__link submenu-button"
+							>
+								Support
+							</button>
+							<ul class="topnav__submenu open-left">
+								<li class="dropdown__item">
+									<a href="#donors">Donors and Sponsors</a>
+								</li>
+								<li class="dropdown__item">
+									<a href="#merchandise">Merchandise</a>
+								</li>
+								<li class="dropdown__item"><a href="#donate">Donate</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
 
 		<main>
 			<div id="level-menu">
@@ -63,23 +228,25 @@
 					</div>
 				</div>
 			</div>
+			<div id="schedules-container">
+				<div class="schedule-card-wrapper">
+					<table class="table schedule-table">
+						<caption id="table-title"></caption>
+						<tr class="schedule-headers">
+							<th class="header-row">Day</th>
+							<th class="header-row">Class Type</th>
+							<th class="header-row">Time</th>
+							<th class="header-row">Studio</th>
+							<th class="header-row">Instructor</th>
+						</tr>
 
-			<div id="schedule-card-container"></div>
-			<table class="table schedule-table">
-				<tr class="schedule-headers">
-					<th class="header-row">Day</th>
-					<th class="header-row">Class Type</th>
-					<th class="header-row">Start Time</th>
-					<th class="header-row">End Time</th>
-					<th class="header-row">Studio</th>
-					<th class="header-row">Instructor</th>
-				</tr>
-
-				<tbody id="schedule-data-table"></tbody>
-			</table>
+						<tbody id="schedule-data-table"></tbody>
+					</table>
+				</div>
+			</div>
 		</main>
 	</body>
 
-	<!--	<script src="scripts/navbar.js" type="module"></script>-->
+	<script src="scripts/navbar.js" type="module"></script>
 	<script src="./scripts/schedule.js" type="module"></script>
 </html>

@@ -17,6 +17,9 @@ getSchedule().then((schedule) => {
 	let level = 'Pre-Professional A';
 	let fullSchedule = formatSchedule(schedule);
 	console.log(fullSchedule);
+
+	// code for level selection goes here
+
 	let filteredSchedule = filterLevel(fullSchedule, level);
 	buildTable(filteredSchedule);
 });
@@ -56,16 +59,18 @@ function filterLevel(sch, level) {
 function buildTable(data) {
 	let tbodyEl = document.getElementById('schedule-data-table');
 	let rowEl = document.createElement('tr');
+	let captionEl = document.getElementById('table-title');
+
+	captionEl.innerHTML = data[0].level;
 
 	for (let i = 0; i < data.length; i++) {
 		rowEl.className = 'class-row';
 		tbodyEl.innerHTML += `<tr>
-						<td id="day-cell">${data[i].day}</td>
-						<td id="type-cell">${data[i].type}</td>
-						<td id="start-cell">${data[i].start}</td>
-						<td id="end-cell">${data[i].end}</td>
-						<td id="studio-cell">${data[i].studio}</td>
-						<td id="instructor-cell">${data[i].instructor}</td>
+						<td data-cell-"day">${data[i].day.substring(0, 3)}</td> 
+						<td data-cell-"type">${data[i].type}</td>
+						<td data-cell-"time">${data[i].start} - ${data[i].end}</td>
+						<td data-cell-"studio">${data[i].studio}</td>
+						<td data-cell-"instructor">${data[i].instructor}</td>
 				   </tr>
 		`;
 		tbodyEl.insertRow(-1);
