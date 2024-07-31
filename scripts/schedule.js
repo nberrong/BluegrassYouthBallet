@@ -17,7 +17,8 @@ getSchedule().then((schedule) => {
 	let level = 'Pre-Professional A';
 	let fullSchedule = formatSchedule(schedule);
 	console.log(fullSchedule);
-	buildTable(fullSchedule);
+	let filteredSchedule = filterLevel(fullSchedule, level);
+	buildTable(filteredSchedule);
 });
 
 //schedule display functions begin here
@@ -40,14 +41,16 @@ function formatSchedule(sch) {
 	return formattedSchedule;
 }
 
-function filterLevel(sch) {
-	if (sch.level === 'Pre-Professional A') {
-		return true;
-	} else {
-		return false;
+function filterLevel(sch, level) {
+	let filtered = [];
+
+	for (let i = 0; i < sch.length; i++) {
+		if (sch[i].level === level) {
+			filtered.push(sch[i]);
+		}
 	}
 
-	let scheduleByLevel = fullSchedule.filter(filterLevel(fullSchedule));
+	return filtered;
 }
 
 function buildTable(data) {
