@@ -195,46 +195,36 @@
 		<main>
 			<div id="level-menu">
 				<h1>Class Schedule Finder</h1>
-				<p>Please selection options below to see class schedules.</p>
+				<p>
+					Please select options below to see class schedules for each division.
+				</p>
 
 				<div id="options-wrapper">
-					<div class="level-selector">
-						<label for="class-level">Choose levels to display:</label>
-						<select name="class-level" id="class-level">
-							<option value="prepro">Pre-Professional</option>
-							<option value="adv">Advanced</option>
-						</select>
-					</div>
-					<div id="contemp-selector">
-						<label for="show-contemp">Show contemporary classes?</label>
-						<input
-							type="checkbox"
-							id="show-contemp"
-							name="show-contemp"
-							value="yes"
-							unchecked
-						/>
-					</div>
-					<div id="boys-selector">
-						<label for="show-boys">Show boys classes?</label>
-						<input
-							type="checkbox"
-							id="show-boys"
-							name="show-boys"
-							value="yes"
-							unchecked
-						/>
-					</div>
-					<div class="button-wrapper">
-						<button id="generate-schedule">Show Schedule</button>
-						<button id="clear-button">Clear Schedule</button>
-					</div>
+					<ul>
+						<li>
+							<input
+								id="advanced"
+								name="levels"
+								value="advanced"
+								type="checkbox"
+							/>
+							<label for="advanced">Advanced Division</label>
+						</li>
+						<li>
+							<input id="prepro" name="levels" value="prepro" type="checkbox" />
+							<label for="prepro">Pre-Professional Division</label>
+						</li>
+					</ul>
+				</div>
+				<div class="button-wrapper">
+					<button class="get-schedule-btn">Generate Schedules</button>
+					<button class="clear-btn">Clear Schedules</button>
 				</div>
 			</div>
 			<div id="schedules-container">
 				<div class="schedule-card-wrapper">
 					<table class="table schedule-table">
-						<caption id="table-title"></caption>
+						<div id="caption-wrapper"></div>
 						<tr class="schedule-headers">
 							<th class="header-row">Day</th>
 							<th class="header-row">Time</th>

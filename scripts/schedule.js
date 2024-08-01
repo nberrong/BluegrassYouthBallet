@@ -2,6 +2,21 @@
 
 import config from './config.js';
 
+let getSchButton = document.querySelector('.get-schedule-btn');
+
+getSchButton.addEventListener('click', function () {
+	getSchedule().then((schedule) => {
+		let level = 'Pre-Professional A';
+		let fullSchedule = formatSchedule(schedule);
+		console.log(fullSchedule);
+
+		// code for level selection goes here
+
+		let filteredSchedule = filterDivision(fullSchedule, level);
+		buildTable(filteredSchedule);
+	});
+});
+
 // required API call - Google Sheets API
 function getSchedule() {
 	return fetch(
@@ -12,17 +27,6 @@ function getSchedule() {
 			return data.values;
 		});
 }
-
-getSchedule().then((schedule) => {
-	let level = 'Pre-Professional A';
-	let fullSchedule = formatSchedule(schedule);
-	console.log(fullSchedule);
-
-	// code for level selection goes here
-
-	let filteredSchedule = filterLevel(fullSchedule, level);
-	buildTable(filteredSchedule);
-});
 
 //schedule display functions begin here
 function formatSchedule(sch) {
@@ -44,7 +48,7 @@ function formatSchedule(sch) {
 	return formattedSchedule;
 }
 
-function filterLevel(sch, level) {
+function filterDivision(sch, level) {
 	let filtered = [];
 
 	for (let i = 0; i < sch.length; i++) {
@@ -57,10 +61,11 @@ function filterLevel(sch, level) {
 }
 
 function buildTable(data) {
-	let tbodyEl = document.getElementById('schedule-data-table');
-	let captionEl = document.getElementById('table-title');
-
-	captionEl.innerHTML = data[0].level;
+	const table = document.querySelector('table');
+	const tbodyEl = document.getElementById('schedule-data-table');
+	const captionContainer = document.getElementById('caption-wrapper');
+	let caption = table.createCaption();
+	caption.textContent = data[1].level;
 
 	for (let i = 0; i < data.length; i++) {
 		tbodyEl.innerHTML += `<tr>

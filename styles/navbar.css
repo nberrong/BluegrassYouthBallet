@@ -155,7 +155,7 @@ ul.open-left {
 }
 
 .topnav__links a.active:after,
-.topnav__links button.active:after {
+.topnav__links .submenu-button[aria-expanded='true'] {
 	content: '';
 	position: absolute;
 	display: block;

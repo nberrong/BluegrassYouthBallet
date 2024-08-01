@@ -14,7 +14,6 @@ th {
 	display: none;
 }
 
-caption,
 th,
 td {
 	padding: 0.7rem;
@@ -27,6 +26,7 @@ caption {
 	font-size: 1.35rem;
 	font-weight: 600;
 	border-radius: 10px 10px 0 0;
+	padding: 0.7rem 0;
 }
 
 th,
