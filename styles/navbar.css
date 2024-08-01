@@ -184,8 +184,13 @@ a#navbar_logo_link {
 		float: right;
 	}
 
-	.open-left {
+	.topnav__submenu .open-left {
+		align-items: flex-end;
+	}
+
+	ul.open-left {
 		right: 0;
+		align-items: flex-end;
 	}
 
 	.has_submenu:hover > ul {

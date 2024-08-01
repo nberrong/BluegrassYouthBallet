@@ -64,11 +64,11 @@ function buildTable(data) {
 
 	for (let i = 0; i < data.length; i++) {
 		tbodyEl.innerHTML += `<tr>
-						<td data-cell-"day">${data[i].day.substring(0, 3)}</td> 
-						<td data-cell-"time">${data[i].start} - ${data[i].end}</td>
-						<td data-cell-"type">${data[i].type}</td>
-						<td data-cell-"studio">${data[i].studio}</td>
-						<td data-cell-"instructor">${data[i].instructor}</td>
+						<td data-cell="day" class="day-cell">${data[i].day.substring(0, 3)}</td> 
+						<td data-cell="time" class="time-cell">${data[i].start}—\n${data[i].end}</td>
+						<td data-cell="type" class="type-cell">${data[i].type}</td>
+						<td data-cell="studio" class="studio-cell">${data[i].studio}</td>
+						<td data-cell="instructor" class="instructor-cell">${data[i].instructor}</td>
 				   </tr>
 		`;
 		tbodyEl.insertRow(0);

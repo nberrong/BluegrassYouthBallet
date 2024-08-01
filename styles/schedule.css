@@ -7,20 +7,22 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	background: hsl(37 96% 80%);
+	border-radius: 10px;
 }
 
 caption,
 th,
 td {
-	padding: 1rem;
+	padding: 0.7rem;
 }
 
 caption {
 	text-align: center;
 	background: #127bbf;
 	color: white;
-	font-size: 1.5rem;
+	font-size: 1.35rem;
 	font-weight: 600;
+	border-radius: 10px 10px 0 0;
 }
 
 th,
@@ -29,5 +31,23 @@ td {
 }
 
 tbody tr:nth-child(odd) {
-	background: hsl(37 96% 70%);
+	background: hsl(37 96% 75%);
+}
+
+.day-cell {
+	font-size: 1.25em;
+	font-weight: 1000;
+	color: #127bbf;
+}
+
+.time-cell {
+	white-space: pre;
+}
+
+.type-cell {
+	font-weight: 1000;
+}
+
+.studio-cell {
+	white-space: nowrap;
 }
