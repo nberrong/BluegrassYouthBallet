@@ -6,13 +6,12 @@ let getSchButton = document.querySelector('.get-schedule-btn');
 
 getSchButton.addEventListener('click', function () {
 	getSchedule().then((schedule) => {
-		let level = 'Pre-Professional A';
+		let division = 'prepro';
 		let fullSchedule = formatSchedule(schedule);
-		console.log(fullSchedule);
 
 		// code for level selection goes here
 
-		let filteredSchedule = filterDivision(fullSchedule, level);
+		let filteredSchedule = filterDivision(fullSchedule, division);
 		buildTable(filteredSchedule);
 	});
 });
@@ -48,11 +47,11 @@ function formatSchedule(sch) {
 	return formattedSchedule;
 }
 
-function filterDivision(sch, level) {
+function filterDivision(sch, division) {
 	let filtered = [];
 
 	for (let i = 0; i < sch.length; i++) {
-		if (sch[i].level === level) {
+		if (sch[i].division === division) {
 			filtered.push(sch[i]);
 		}
 	}
