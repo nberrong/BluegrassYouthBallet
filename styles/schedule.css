@@ -10,6 +10,10 @@ table {
 	border-radius: 10px;
 }
 
+th {
+	display: none;
+}
+
 caption,
 th,
 td {
@@ -42,12 +46,33 @@ tbody tr:nth-child(odd) {
 
 .time-cell {
 	white-space: pre;
+	font-weight: 1000;
 }
 
 .type-cell {
-	font-weight: 1000;
+	font-weight: 800;
 }
 
 .studio-cell {
 	white-space: nowrap;
+}
+
+@media (max-width: 450px) {
+	td {
+		display: grid;
+		gap: 0.5rem;
+		padding: 0.2rem 0.7rem;
+	}
+
+	td:first-child {
+		padding-top: 0.75rem;
+	}
+
+	td:last-child {
+		padding-bottom: 0.75rem;
+	}
+
+	.time-cell {
+		white-space: normal;
+	}
 }
