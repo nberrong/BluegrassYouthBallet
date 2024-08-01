@@ -6,7 +6,7 @@
 table {
 	width: 100%;
 	border-collapse: collapse;
-	background: hsl(37 96% 60%);
+	background: hsl(37 96% 80%);
 }
 
 caption,
@@ -28,6 +28,6 @@ td {
 	text-align: left;
 }
 
-tbody .class-row tr:nth-of-type() {
-	background: white;
+tbody tr:nth-child(odd) {
+	background: hsl(37 96% 70%);
 }

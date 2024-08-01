@@ -58,21 +58,19 @@ function filterLevel(sch, level) {
 
 function buildTable(data) {
 	let tbodyEl = document.getElementById('schedule-data-table');
-	let rowEl = document.createElement('tr');
 	let captionEl = document.getElementById('table-title');
 
 	captionEl.innerHTML = data[0].level;
 
 	for (let i = 0; i < data.length; i++) {
-		rowEl.className = 'class-row';
 		tbodyEl.innerHTML += `<tr>
 						<td data-cell-"day">${data[i].day.substring(0, 3)}</td> 
-						<td data-cell-"type">${data[i].type}</td>
 						<td data-cell-"time">${data[i].start} - ${data[i].end}</td>
+						<td data-cell-"type">${data[i].type}</td>
 						<td data-cell-"studio">${data[i].studio}</td>
 						<td data-cell-"instructor">${data[i].instructor}</td>
 				   </tr>
 		`;
-		tbodyEl.insertRow(-1);
+		tbodyEl.insertRow(0);
 	}
 }
