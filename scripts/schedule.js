@@ -6,7 +6,7 @@ let getSchButton = document.querySelector('.get-schedule-btn');
 
 getSchButton.addEventListener('click', function () {
 	getSchedule().then((schedule) => {
-		let division = 'prepro';
+		let division = 'Boys';
 		let fullSchedule = formatSchedule(schedule);
 
 		// code for level selection goes here
@@ -48,22 +48,25 @@ function formatSchedule(sch) {
 
 function filterSchedule(sch, division) {
 	let filtered = [];
-	let currentLevel = sch[0].level;
 
 	for (let i = 0; i < sch.length; i++) {
-		if (sch[i].division === division) {
-			if (sch[i].level === currentLevel) {
+		if (sch[i].division !== division) {
+			continue;
+		}
+
+		if (filtered.length === 0) {
+			filtered.push(sch[i]);
+		} else {
+			if (sch[i].level === sch[i - 1].level) {
 				filtered.push(sch[i]);
 			} else {
 				buildTable(filtered);
-				console.log(filtered);
 				filtered = [];
 				filtered.push(sch[i]);
-				currentLevel = sch[i].level;
 			}
 		}
 	}
-	if (filtered.length !== 0) {
+	if (filtered.length > 0) {
 		buildTable(filtered);
 	}
 }

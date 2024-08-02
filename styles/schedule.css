@@ -16,7 +16,7 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	background: hsl(37 96% 80%);
-	border-radius: 10px;
+	border-radius: 0 0 10px 10px;
 }
 
 th {
