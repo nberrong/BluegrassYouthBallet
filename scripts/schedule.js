@@ -70,9 +70,12 @@ function filterSchedule(sch, division) {
 
 function buildTable(data) {
 	const schContainer = document.getElementById('schedules-container');
+	const tableDiv = document.createElement('div');
 	const newTable = document.createElement('table');
 	const newTbody = document.createElement('tbody');
+
 	newTable.appendChild(newTbody);
+	tableDiv.className = 'table-wrap';
 
 	let caption = newTable.createCaption();
 	caption.textContent = data[0].level;
@@ -88,7 +91,9 @@ function buildTable(data) {
 		`;
 		newTbody.insertRow(0);
 	}
-	schContainer.appendChild(newTable);
+	tableDiv.appendChild(newTable);
+	schContainer.appendChild(tableDiv);
+
 	AddTableARIA();
 }
 

@@ -1,8 +1,19 @@
-.schedules-container {
+#schedules-container {
 	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	gap: 2em;
+	justify-content: space-around;
+	padding: 1.5em;
+}
+
+.table-wrap {
+	flex: 1 1 400px;
 }
 
 table {
+	width: 100%;
 	border-collapse: collapse;
 	background: hsl(37 96% 80%);
 	border-radius: 10px;
@@ -56,6 +67,11 @@ tbody tr:nth-child(odd) {
 }
 
 @media (max-width: 450px) {
+	#schedules-container {
+		gap: 1em;
+		padding: 1em;
+	}
+
 	td {
 		display: grid;
 		gap: 0.5rem;
