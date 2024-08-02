@@ -1,10 +1,8 @@
-.schedule-card-wrapper {
-	width: min(600px, 100% - 3rem);
-	margin-inline: auto;
+.schedules-container {
+	width: 100%;
 }
 
 table {
-	width: 100%;
 	border-collapse: collapse;
 	background: hsl(37 96% 80%);
 	border-radius: 10px;

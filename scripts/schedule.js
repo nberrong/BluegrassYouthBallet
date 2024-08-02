@@ -11,8 +11,7 @@ getSchButton.addEventListener('click', function () {
 
 		// code for level selection goes here
 
-		let filteredSchedule = filterDivision(fullSchedule, division);
-		buildTable(filteredSchedule);
+		filterSchedule(fullSchedule, division);
 	});
 });
 
@@ -47,27 +46,39 @@ function formatSchedule(sch) {
 	return formattedSchedule;
 }
 
-function filterDivision(sch, division) {
+function filterSchedule(sch, division) {
 	let filtered = [];
+	let currentLevel = sch[0].level;
 
 	for (let i = 0; i < sch.length; i++) {
 		if (sch[i].division === division) {
-			filtered.push(sch[i]);
+			if (sch[i].level === currentLevel) {
+				filtered.push(sch[i]);
+			} else {
+				buildTable(filtered);
+				console.log(filtered);
+				filtered = [];
+				filtered.push(sch[i]);
+				currentLevel = sch[i].level;
+			}
 		}
 	}
-
-	return filtered;
+	if (filtered.length !== 0) {
+		buildTable(filtered);
+	}
 }
 
 function buildTable(data) {
-	const table = document.querySelector('table');
-	const tbodyEl = document.getElementById('schedule-data-table');
-	const captionContainer = document.getElementById('caption-wrapper');
-	let caption = table.createCaption();
-	caption.textContent = data[1].level;
+	const schContainer = document.getElementById('schedules-container');
+	const newTable = document.createElement('table');
+	const newTbody = document.createElement('tbody');
+	newTable.appendChild(newTbody);
+
+	let caption = newTable.createCaption();
+	caption.textContent = data[0].level;
 
 	for (let i = 0; i < data.length; i++) {
-		tbodyEl.innerHTML += `<tr>
+		newTbody.innerHTML += `<tr>
 						<td data-cell="day" class="day-cell">${data[i].day.substring(0, 3)}</td> 
 						<td data-cell="time" class="time-cell">${data[i].start} —\n${data[i].end}</td>
 						<td data-cell="type" class="type-cell">${data[i].type}</td>
@@ -75,8 +86,9 @@ function buildTable(data) {
 						<td data-cell="instructor" class="instructor-cell">${data[i].instructor}</td>
 				   </tr>
 		`;
-		tbodyEl.insertRow(0);
+		newTbody.insertRow(0);
 	}
+	schContainer.appendChild(newTable);
 	AddTableARIA();
 }
 
