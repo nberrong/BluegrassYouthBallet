@@ -26,6 +26,41 @@ function getSchedule() {
 		});
 }
 
+// checkbox code begins here
+
+const checkboxes = document.querySelectorAll('input[type=checkbox]');
+
+checkboxes.forEach((checkbox) => {
+	checkbox.addEventListener('change', (event) =>
+		checkboxStatusCheck(event.target)
+	);
+});
+
+function checkboxStatusCheck(activeBox) {
+	let children = document.querySelectorAll(`[name^=${activeBox.name}]`);
+	children.forEach((child) => {
+		child.checked = activeBox.checked;
+		child.indeterminate = false;
+	});
+	checkIndeterminate();
+}
+
+function checkIndeterminate() {
+	[...checkboxes].forEach((checkbox) => {
+		let checkboxChildren = document.querySelectorAll(
+			`[name^="${checkbox.name}-"]`
+		);
+		if (checkboxChildren.length === 0) return;
+		let uncheckedChildren = [...checkboxChildren].filter(
+			(child) => !child.checked
+		);
+		checkbox.indeterminate =
+			uncheckedChildren.length > 0 &&
+			uncheckedChildren.length < checkboxChildren.length;
+		checkbox.checked = uncheckedChildren.length === 0;
+	});
+}
+
 //schedule display functions begin here
 function formatSchedule(sch) {
 	let keys = sch[0];
