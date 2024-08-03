@@ -350,7 +350,7 @@ a#navbar_logo_link {
 	}
 
 	#navbar_logo {
-		margin-top: 0.5em;
+		margin: 0.5em 0 0.75em 0;
 	}
 
 	.topnav__links {

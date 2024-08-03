@@ -2,11 +2,16 @@
 
 import config from './config.js';
 
-let getSchButton = document.querySelector('.get-schedule-btn');
+const selectLevelsButton = document.getElementById('select-levels-btn');
+const getSchButton = document.querySelector('.get-schedule-btn');
+
+selectLevelsButton.addEventListener('click', function () {
+	openSelectMenu();
+});
 
 getSchButton.addEventListener('click', function () {
 	getSchedule().then((schedule) => {
-		let division = 'Boys';
+		let division = 'Elementary';
 		let fullSchedule = formatSchedule(schedule);
 
 		// code for level selection goes here
@@ -24,6 +29,15 @@ function getSchedule() {
 		.then((data) => {
 			return data.values;
 		});
+}
+
+function openSelectMenu() {
+	let menu = document.getElementById('level-select-menu');
+	let openButtonDiv = document.getElementById('open-selectmenu-wrapper');
+
+	menu.style.display = 'block';
+
+	openButtonDiv.style.display = 'none';
 }
 
 // checkbox code begins here

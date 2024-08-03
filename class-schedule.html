@@ -17,6 +17,10 @@
 			rel="stylesheet"
 		/>
 
+		<link
+			href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="styles/styles.css" />
 		<link rel="stylesheet" href="styles/navbar.css" />
 		<link rel="stylesheet" href="styles/schedule.css" />
@@ -193,72 +197,80 @@
 		</header>
 
 		<main>
-			<div class="level-select-menu">
-				<ul>
-					<li>
-						<input
-							type="checkbox"
-							name="prepro"
-							id="prepro"
-							class="parent-checkbox"
-						/>
-						<label for="prepro">Pre-Professional</label>
-						<ul>
-							<li>
-								<input
-									type="checkbox"
-									name="prepro-A"
-									id="prepro-A"
-									class="child-checkbox"
-								/>
-								<label for="prepro-A">Pre-Professional A</label>
-							</li>
-							<li>
-								<input
-									type="checkbox"
-									name="prepro-B"
-									id="prepro-B"
-									class="child-checkbox"
-								/>
-								<label for="prepro-B">Pre-Professional B</label>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<input
-							type="checkbox"
-							name="advanced"
-							id="advanced"
-							class="parent-checkbox"
-						/>
-						<label for="advanced">Advanced</label>
-						<ul>
-							<li>
-								<input
-									type="checkbox"
-									name="advanced-A"
-									id="advanced-A"
-									class="child-checkbox"
-								/>
-								<label for="advanced-A">Advanced A</label>
-							</li>
-							<li>
-								<input
-									type="checkbox"
-									name="advanced-B"
-									id="advanced-B"
-									class="child-checkbox"
-								/>
-								<label for="advanced-B">Advanced B</label>
-							</li>
-						</ul>
-					</li>
-				</ul>
+			<h1>2024-25 BYB Class Schedules</h1>
+			<div id="open-selectmenu-wrapper">
+				<button id="select-levels-btn">Select Levels to Display</button>
+				<button id="clear-sch-btn">Clear All Schedules</button>
 			</div>
-			<div class="buttons-wrapper">
-				<button class="get-schedule-btn">Select Levels to View</button>
-				<button class="clear-btn">Clear All Schedules</button>
+			<div id="level-select-menu">
+				<h2 id="select-menu-title">Select levels to display:</h2>
+				<div id="level-checkboxes">
+					<ul>
+						<li>
+							<input
+								type="checkbox"
+								name="prepro"
+								id="prepro"
+								class="parent-checkbox"
+							/>
+							<label for="prepro">Pre-Professional</label>
+							<ul>
+								<li>
+									<input
+										type="checkbox"
+										name="prepro-A"
+										id="prepro-A"
+										class="child-checkbox"
+									/>
+									<label for="prepro-A">Pre-Professional A</label>
+								</li>
+								<li>
+									<input
+										type="checkbox"
+										name="prepro-B"
+										id="prepro-B"
+										class="child-checkbox"
+									/>
+									<label for="prepro-B">Pre-Professional B</label>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<input
+								type="checkbox"
+								name="advanced"
+								id="advanced"
+								class="parent-checkbox"
+							/>
+							<label for="advanced">Advanced</label>
+							<ul>
+								<li>
+									<input
+										type="checkbox"
+										name="advanced-A"
+										id="advanced-A"
+										class="child-checkbox"
+									/>
+									<label for="advanced-A">Advanced A</label>
+								</li>
+								<li>
+									<input
+										type="checkbox"
+										name="advanced-B"
+										id="advanced-B"
+										class="child-checkbox"
+									/>
+									<label for="advanced-B">Advanced B</label>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div id="selected-btn-wrapper">
+					<button id="get-schedule-btn">Show Selected Schedules</button>
+				</div>
 			</div>
+
 			<div id="schedules-container"></div>
 		</main>
 	</body>

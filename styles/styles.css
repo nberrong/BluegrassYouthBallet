@@ -4,6 +4,42 @@
 	box-sizing: border-box;
 }
 
+.neuton-extralight {
+	font-family: 'Neuton', serif;
+	font-weight: 200;
+	font-style: normal;
+}
+
+.neuton-light {
+	font-family: 'Neuton', serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.neuton-regular {
+	font-family: 'Neuton', serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.neuton-bold {
+	font-family: 'Neuton', serif;
+	font-weight: 700;
+	font-style: normal;
+}
+
+.neuton-extrabold {
+	font-family: 'Neuton', serif;
+	font-weight: 800;
+	font-style: normal;
+}
+
+.neuton-regular-italic {
+	font-family: 'Neuton', serif;
+	font-weight: 400;
+	font-style: italic;
+}
+
 body {
 	font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
 		Tahoma, sans-serif;
@@ -51,4 +87,14 @@ main {
 
 .blue-text {
 	color: #0071bc;
+}
+
+h1 {
+	font-family: 'Neuton', serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 2.75rem;
+	color: #0071bc;
+	padding: 0 1.5em 0 1.5em;
+	line-height: 1;
 }
