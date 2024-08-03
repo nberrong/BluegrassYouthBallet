@@ -1,11 +1,10 @@
 #level-select-menu {
 	display: none;
-	position: absolute;
-	top: 13rem;
 	left: 0;
 	right: 0;
 	margin: auto;
-	max-width: 600px;
+	margin-top: 3em;
+	max-width: 65%;
 	background: hsl(195 74% 85%);
 	padding: 1em;
 	border-radius: 10px;
@@ -20,8 +19,26 @@
 	margin-bottom: 0.75em;
 }
 
+#level-checkboxes {
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+	list-style: none;
+}
+
 #level-checkboxes ul {
 	list-style: none;
+}
+
+.parent-cb {
+	text-align: left;
+	font-weight: 1000;
+}
+
+.child-cb {
+	text-align: left;
+	font-weight: 200;
+	margin-left: 2em;
 }
 
 #select-levels-btn,
@@ -122,7 +139,25 @@ tbody tr:nth-child(odd) {
 	white-space: nowrap;
 }
 
+@media (max-width: 1000px) {
+	#level-select-menu {
+		max-width: 80%;
+		position: absolute;
+	}
+}
+
 @media (max-width: 450px) {
+	#level-select-menu {
+		margin: 1.5em;
+		display: flex;
+		flex-wrap: nowrap;
+		max-width: 100%;
+	}
+
+	#level-checkboxes {
+		display: block;
+	}
+
 	#schedules-container {
 		gap: 1em;
 		padding: 1em;

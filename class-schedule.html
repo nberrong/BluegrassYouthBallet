@@ -204,9 +204,9 @@
 			</div>
 			<div id="level-select-menu">
 				<h2 id="select-menu-title">Select levels to display:</h2>
-				<div id="level-checkboxes">
-					<ul>
-						<li>
+				<ul id="level-checkboxes">
+					<div class="division_group">
+						<li class="parent-cb">
 							<input
 								type="checkbox"
 								name="prepro"
@@ -215,7 +215,7 @@
 							/>
 							<label for="prepro">Pre-Professional</label>
 							<ul>
-								<li>
+								<li class="child-cb">
 									<input
 										type="checkbox"
 										name="prepro-A"
@@ -224,7 +224,7 @@
 									/>
 									<label for="prepro-A">Pre-Professional A</label>
 								</li>
-								<li>
+								<li class="child-cb">
 									<input
 										type="checkbox"
 										name="prepro-B"
@@ -235,7 +235,10 @@
 								</li>
 							</ul>
 						</li>
-						<li>
+					</div>
+
+					<div class="division_group">
+						<li class="parent-cb">
 							<input
 								type="checkbox"
 								name="advanced"
@@ -244,7 +247,7 @@
 							/>
 							<label for="advanced">Advanced</label>
 							<ul>
-								<li>
+								<li class="child-cb">
 									<input
 										type="checkbox"
 										name="advanced-A"
@@ -253,7 +256,7 @@
 									/>
 									<label for="advanced-A">Advanced A</label>
 								</li>
-								<li>
+								<li class="child-cb">
 									<input
 										type="checkbox"
 										name="advanced-B"
@@ -264,8 +267,9 @@
 								</li>
 							</ul>
 						</li>
-					</ul>
-				</div>
+					</div>
+				</ul>
+
 				<div id="selected-btn-wrapper">
 					<button id="get-schedule-btn">Show Selected Schedules</button>
 				</div>

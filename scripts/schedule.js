@@ -11,7 +11,9 @@ selectLevelsButton.addEventListener('click', function () {
 
 getSchButton.addEventListener('click', function () {
 	getSchedule().then((schedule) => {
-		let division = 'Elementary';
+		const selectMenu = document.getElementById('level-select-menu');
+		selectMenu.style.display = 'none';
+		let division = 'Pre-Professional';
 		let fullSchedule = formatSchedule(schedule);
 
 		// code for level selection goes here
