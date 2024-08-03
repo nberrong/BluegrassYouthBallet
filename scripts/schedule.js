@@ -3,7 +3,7 @@
 import config from './config.js';
 
 const selectLevelsButton = document.getElementById('select-levels-btn');
-const getSchButton = document.querySelector('.get-schedule-btn');
+const getSchButton = document.getElementById('get-schedule-btn');
 
 selectLevelsButton.addEventListener('click', function () {
 	openSelectMenu();
