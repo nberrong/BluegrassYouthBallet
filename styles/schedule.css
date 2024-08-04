@@ -29,8 +29,15 @@
 #level-checkboxes {
 	display: flex;
 	flex-direction: row;
-	gap: 1em;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 1.5em;
 	list-style: none;
+	width: 100%;
+}
+
+.division-group {
+	flex: 1 1 150px;
 }
 
 #level-checkboxes ul {
@@ -40,12 +47,18 @@
 .parent-cb {
 	text-align: left;
 	font-weight: 1000;
+	white-space: nowrap;
 }
 
 .child-cb {
 	text-align: left;
 	font-weight: 200;
 	margin-left: 2em;
+	white-space: nowrap;
+}
+
+.level-label {
+	white-space: nowrap;
 }
 
 #select-levels-btn,
@@ -70,7 +83,6 @@
 #select-levels-btn:hover,
 #select-levels-btn:focus,
 #clear-sch-btn:hover,
-#clear-sch-btn:focus,
 #get-schedule-btn:hover,
 #get-schedule-btn:focus {
 	background-color: hsl(204 100% 42%);
