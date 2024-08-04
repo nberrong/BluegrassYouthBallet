@@ -4,21 +4,25 @@ import config from './config.js';
 
 const selectLevelsButton = document.getElementById('select-levels-btn');
 const getSchButton = document.getElementById('get-schedule-btn');
+const clearSchedulesButton = document.getElementById('clear-sch-btn');
+
+const checkboxes = document.querySelectorAll('input[type=checkbox]');
 
 selectLevelsButton.addEventListener('click', function () {
 	openSelectMenu();
 });
 
+clearSchedulesButton.addEventListener('click', function () {
+	clearSchedules();
+	uncheckAll();
+});
+
 getSchButton.addEventListener('click', function () {
 	getSchedule().then((schedule) => {
-		const selectMenu = document.getElementById('level-select-menu');
-		selectMenu.style.display = 'none';
-		let division = 'Pre-Professional';
+		const selectMenu = document.getElementById('level-checkboxes');
+		selectMenu.style.display = 'flex';
 		let fullSchedule = formatSchedule(schedule);
-
-		// code for level selection goes here
-
-		filterSchedule(fullSchedule, division);
+		levelSelection(fullSchedule);
 	});
 });
 
@@ -37,14 +41,43 @@ function openSelectMenu() {
 	let menu = document.getElementById('level-select-menu');
 	let openButtonDiv = document.getElementById('open-selectmenu-wrapper');
 
+	clearSchedules();
 	menu.style.display = 'block';
 
 	openButtonDiv.style.display = 'none';
 }
 
-// checkbox code begins here
+function closeSelectMenu() {
+	let menu = document.getElementById('level-select-menu');
+	let openButtonDiv = document.getElementById('open-selectmenu-wrapper');
 
-const checkboxes = document.querySelectorAll('input[type=checkbox]');
+	menu.style.display = 'none';
+
+	openButtonDiv.style.display = 'flex';
+}
+
+function levelSelection(sch) {
+	let parentCBs = document.querySelectorAll('.parent-checkbox');
+
+	[...parentCBs].forEach((parentCB) => {
+		if (parentCB.checked) {
+			filterSchByDivision(sch, parentCB.value);
+		} else {
+			let checkboxChildren = document.querySelectorAll(
+				`[name^="${parentCB.name}-"]`
+			);
+			if (checkboxChildren.length > 0) {
+				checkboxChildren.forEach((childCB) => {
+					if (childCB.checked) {
+						filterSchByLevel(sch, childCB.value);
+					}
+				});
+			}
+		}
+	});
+}
+
+// checkbox parent/child code begins here
 
 checkboxes.forEach((checkbox) => {
 	checkbox.addEventListener('change', (event) =>
@@ -97,11 +130,40 @@ function formatSchedule(sch) {
 	return formattedSchedule;
 }
 
-function filterSchedule(sch, division) {
+function filterSchByDivision(sch, division) {
 	let filtered = [];
+
+	closeSelectMenu();
 
 	for (let i = 0; i < sch.length; i++) {
 		if (sch[i].division !== division) {
+			continue;
+		}
+
+		if (filtered.length === 0) {
+			filtered.push(sch[i]);
+		} else {
+			if (sch[i].level === sch[i - 1].level) {
+				filtered.push(sch[i]);
+			} else {
+				buildTable(filtered);
+				filtered = [];
+				filtered.push(sch[i]);
+			}
+		}
+	}
+	if (filtered.length > 0) {
+		buildTable(filtered);
+	}
+}
+
+function filterSchByLevel(sch, level) {
+	let filtered = [];
+
+	closeSelectMenu();
+
+	for (let i = 0; i < sch.length; i++) {
+		if (sch[i].level !== level) {
 			continue;
 		}
 
@@ -149,6 +211,17 @@ function buildTable(data) {
 	schContainer.appendChild(tableDiv);
 
 	AddTableARIA();
+}
+
+function uncheckAll() {
+	checkboxes.forEach((checkbox) => {
+		checkbox.checked = false;
+		checkbox.indeterminate = false;
+	});
+}
+
+function clearSchedules() {
+	document.getElementById('schedules-container').innerHTML = '';
 }
 
 // Function to add table ARIA from https://adrianroselli.com/2018/05/functions-to-add-aria-to-tables-and-lists.html

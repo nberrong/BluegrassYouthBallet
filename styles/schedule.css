@@ -13,6 +13,13 @@
 		rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
+#open-selectmenu-wrapper {
+	display: flex;
+	justify-content: center;
+	gap: 0.5em;
+	margin: auto;
+}
+
 #select-menu-title {
 	font-size: 1.25em;
 	padding: 0;
