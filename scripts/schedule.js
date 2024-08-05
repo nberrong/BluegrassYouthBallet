@@ -6,28 +6,311 @@ const selectLevelsButton = document.getElementById('select-levels-btn');
 const getSchButton = document.getElementById('get-schedule-btn');
 const clearSchedulesButton = document.getElementById('clear-sch-btn');
 
-const checkboxes = document.querySelectorAll('input[type=checkbox]');
+let checkboxes = document.querySelectorAll('.dynamic-cb');
 
-selectLevelsButton.addEventListener('click', function () {
-	openSelectMenu();
-});
+getFullSchedule().then((schedule) => {
+	const fullSchedule = formatSchedule(schedule);
 
-clearSchedulesButton.addEventListener('click', function () {
-	clearSchedules();
-	uncheckAll();
-});
+	generateCheckboxes(fullSchedule);
 
-getSchButton.addEventListener('click', function () {
-	getSchedule().then((schedule) => {
-		const selectMenu = document.getElementById('level-checkboxes');
-		selectMenu.style.display = 'flex';
-		let fullSchedule = formatSchedule(schedule);
-		levelSelection(fullSchedule);
+	let checkboxes = document.querySelectorAll('.dynamic-cb');
+
+	checkboxes.forEach((checkbox) => {
+		checkbox.addEventListener('change', (event) => {
+			checkboxStatusCheck(event.target);
+		});
 	});
+
+	selectLevelsButton.addEventListener('click', function () {
+		openSelectMenu();
+	});
+
+	getSchButton.addEventListener('click', () => outputSchedules(fullSchedule));
+
+	clearSchedulesButton.addEventListener('click', function () {
+		clearSchedules();
+		uncheckAll();
+	});
+
+	function checkboxStatusCheck(activeBox) {
+		let children = document.querySelectorAll(`[name^=${activeBox.name}]`);
+		children.forEach((child) => {
+			child.checked = activeBox.checked;
+			child.indeterminate = false;
+		});
+		checkIndeterminate();
+	}
+
+	function checkIndeterminate() {
+		[...checkboxes].forEach((checkbox) => {
+			let checkboxChildren = document.querySelectorAll(
+				`[name^="${checkbox.name}-"]`
+			);
+			if (checkboxChildren.length === 0) return;
+			let uncheckedChildren = [...checkboxChildren].filter(
+				(child) => !child.checked
+			);
+			checkbox.indeterminate =
+				uncheckedChildren.length > 0 &&
+				uncheckedChildren.length < checkboxChildren.length;
+			checkbox.checked = uncheckedChildren.length === 0;
+		});
+	}
+
+	function uncheckAll() {
+		checkboxes.forEach((checkbox) => {
+			checkbox.checked = false;
+			checkbox.indeterminate = false;
+		});
+	}
 });
+
+function generateCheckboxes(sch) {
+	// checkbox generation code here
+	let checkboxesEl = document.getElementById('checkboxes-container');
+	checkboxesEl.innerHTML = `<ul id="level-checkboxes">
+					<div class="division_group">
+						<li class="parent-cb">
+							<input
+								type="checkbox"
+								name="prepro"
+								id="prepro"
+								class="parent-checkbox dynamic-cb"
+								value="Pre-Professional"
+							/>
+							<label class="level-label" for="prepro">Pre-Professional</label>
+							<ul>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="prepro-A"
+										id="prepro-A"
+										class="child-checkbox dynamic-cb"
+										value="Pre-Professional A"
+									/>
+									<label class="level-label" for="prepro-A"
+										>Pre-Professional A</label
+									>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="prepro-B"
+										id="prepro-B"
+										class="child-checkbox dynamic-cb"
+										value="Pre-Professional B"
+									/>
+									<label class="level-label" for="prepro-B"
+										>Pre-Professional B</label
+									>
+								</li>
+							</ul>
+						</li>
+					</div>
+
+					<div class="division_group">
+						<li class="parent-cb">
+							<input
+								type="checkbox"
+								name="advanced"
+								id="advanced"
+								class="parent-checkbox dynamic-cb"
+								value="Advanced"
+							/>
+							<label class="level-label" for="advanced">Advanced</label>
+							<ul>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="advanced-A"
+										id="advanced-A"
+										class="child-checkbox dynamic-cb"
+										value="Advanced A"
+									/>
+									<label class="level-label" for="advanced-A">Advanced A</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="advanced-B"
+										id="advanced-B"
+										class="child-checkbox dynamic-cb"
+										value="Advanced B"
+									/>
+									<label class="level-label" for="advanced-B">Advanced B</label>
+								</li>
+							</ul>
+						</li>
+					</div>
+
+					<div class="division_group">
+						<li class="parent-cb">
+							<input
+								type="checkbox"
+								name="int"
+								id="int"
+								class="parent-checkbox dynamic-cb"
+								value="Intermediate"
+							/>
+							<label class="level-label" for="int">Intermediate</label>
+							<ul>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="int-A1"
+										id="int-A1"
+										class="child-checkbox dynamic-cb"
+										value="Intermediate A1"
+									/>
+									<label class="level-label" for="int-A1"
+										>Intermediate A1</label
+									>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="int-A2"
+										id="int-A2"
+										class="child-checkbox dynamic-cb"
+										value="Intermediate A2"
+									/>
+									<label class="level-label" for="int-A2"
+										>Intermediate A2</label
+									>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="int-B"
+										id="int-B"
+										class="child-checkbox dynamic-cb"
+										value="Intermediate B"
+									/>
+									<label class="level-label" for="int-B">Intermediate B</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="int-C"
+										id="int-C"
+										class="child-checkbox dynamic-cb"
+										value="Intermediate C"
+									/>
+									<label class="level-label" for="int-C">Intermediate C</label>
+								</li>
+							</ul>
+						</li>
+					</div>
+
+					<div class="division_group">
+						<li class="parent-cb">
+							<input
+								type="checkbox"
+								name="elem"
+								id="elem"
+								class="parent-checkbox dynamic-cb"
+								value="Elementary"
+							/>
+							<label class="level-label" for="elem">Elementary</label>
+							<ul>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="elem-A1"
+										id="elem-A1"
+										class="child-checkbox dynamic-cb"
+										value="Elementary A1"
+									/>
+									<label class="level-label" for="elem-A1">Elementary A1</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="elem-A2"
+										id="elem-A2"
+										class="child-checkbox dynamic-cb"
+										value="Elementary A2"
+									/>
+									<label class="level-label" for="elem-A2">Elementary A2</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="elem-A3"
+										id="elem-A3"
+										class="child-checkbox dynamic-cb"
+										value="Elementary A3"
+									/>
+									<label class="level-label" for="elem-A3">Elementary A3</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="elem-A4"
+										id="elem-A4"
+										class="child-checkbox dynamic-cb"
+										value="Elementary A4"
+									/>
+									<label class="level-label" for="elem-A4">Elementary A4</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="elem-B1"
+										id="elem-B1"
+										class="child-checkbox dynamic-cb"
+										value="Elementary B1"
+									/>
+									<label class="level-label" for="elem-B1">Elementary B1</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="elem-B2"
+										id="elem-B2"
+										class="child-checkbox dynamic-cb"
+										value="Elementary B2"
+									/>
+									<label class="level-label" for="elem-B2">Elementary B2</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="elem-B3"
+										id="elem-B3"
+										class="child-checkbox dynamic-cb"
+										value="Elementary B3"
+									/>
+									<label class="level-label" for="elem-B3">Elementary B3</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="elem-C1"
+										id="elem-C1"
+										class="child-checkbox dynamic-cb"
+										value="Elementary C1"
+									/>
+									<label class="level-label" for="elem-B1">Elementary C1</label>
+								</li>
+								<li class="child-cb">
+									<input
+										type="checkbox"
+										name="elem-C2"
+										id="elem-C2"
+										class="child-checkbox dynamic-cb"
+										value="Elementary C2"
+									/>
+									<label class="level-label" for="elem-C2">Elementary C2</label>
+								</li>
+							</ul>
+						</li>
+					</div>
+				</ul>`;
+}
 
 // required API call - Google Sheets API
-function getSchedule() {
+function getFullSchedule() {
 	return fetch(
 		`https://sheets.googleapis.com/v4/spreadsheets/${config.SHEET_ID}/values/${config.SHEET_NAME}?key=${config.API_KEY}`
 	)
@@ -56,7 +339,7 @@ function closeSelectMenu() {
 	openButtonDiv.style.display = 'flex';
 }
 
-function levelSelection(sch) {
+function outputSchedules(sch) {
 	let parentCBs = document.querySelectorAll('.parent-checkbox');
 
 	[...parentCBs].forEach((parentCB) => {
@@ -77,40 +360,6 @@ function levelSelection(sch) {
 	});
 }
 
-// checkbox parent/child code begins here
-
-checkboxes.forEach((checkbox) => {
-	checkbox.addEventListener('change', (event) =>
-		checkboxStatusCheck(event.target)
-	);
-});
-
-function checkboxStatusCheck(activeBox) {
-	let children = document.querySelectorAll(`[name^=${activeBox.name}]`);
-	children.forEach((child) => {
-		child.checked = activeBox.checked;
-		child.indeterminate = false;
-	});
-	checkIndeterminate();
-}
-
-function checkIndeterminate() {
-	[...checkboxes].forEach((checkbox) => {
-		let checkboxChildren = document.querySelectorAll(
-			`[name^="${checkbox.name}-"]`
-		);
-		if (checkboxChildren.length === 0) return;
-		let uncheckedChildren = [...checkboxChildren].filter(
-			(child) => !child.checked
-		);
-		checkbox.indeterminate =
-			uncheckedChildren.length > 0 &&
-			uncheckedChildren.length < checkboxChildren.length;
-		checkbox.checked = uncheckedChildren.length === 0;
-	});
-}
-
-//schedule display functions begin here
 function formatSchedule(sch) {
 	let keys = sch[0];
 	//remove keys from main array
@@ -211,13 +460,6 @@ function buildTable(data) {
 	schContainer.appendChild(tableDiv);
 
 	AddTableARIA();
-}
-
-function uncheckAll() {
-	checkboxes.forEach((checkbox) => {
-		checkbox.checked = false;
-		checkbox.indeterminate = false;
-	});
 }
 
 function clearSchedules() {
