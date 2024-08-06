@@ -3,7 +3,7 @@
 import config from './config.js';
 
 const selectLevelsButton = document.getElementById('select-levels-btn');
-const getSchButton = document.getElementById('get-schedule-btn');
+
 const clearSchedulesButton = document.getElementById('clear-sch-btn');
 
 let checkboxes = document.querySelectorAll('.dynamic-cb');
@@ -13,23 +13,110 @@ getFullSchedule().then((schedule) => {
 
 	generateCheckboxes(fullSchedule);
 
+	selectLevelsButton.addEventListener('click', function () {
+		openSelectMenu();
+	});
+
+	clearSchedulesButton.addEventListener('click', function () {
+		clearSchedules();
+		uncheckAll();
+	});
+
+	const getSchButton = document.getElementById('get-schedule-btn');
+	getSchButton.addEventListener('click', () => outputSchedules(fullSchedule));
+});
+
+function generateCheckboxes(sch) {
+	// checkbox container - append to this as each level generated
+	const checkboxesEl = document.getElementById('checkboxes-container');
+
+	const checkboxListEl = document.createElement('ul');
+	checkboxListEl.id = 'level-checkboxes';
+
+	let currentDivision = sch[0].division;
+	let currentLevel = sch[0].level;
+
+	let schForSubmenu = [];
+
+	for (let i = 0; i < sch.length; i++) {
+		if (
+			i === 0 ||
+			(sch[i].division === currentDivision && sch[i].level === currentLevel)
+		) {
+			if (i === 0) {
+				schForSubmenu.push(sch[i]);
+			} else {
+				continue;
+			}
+		} else if (
+			sch[i].division === currentDivision &&
+			sch[i].level !== currentLevel &&
+			i !== sch.length - 1
+		) {
+			schForSubmenu.push(sch[i]);
+			currentLevel = sch[i].level;
+		} else {
+			let divisionNameLC = sch[i - 1].division;
+
+			const parentCheckboxEl = document.createElement('li');
+			parentCheckboxEl.className = 'parent-cb';
+
+			// level li (checkbox and label) and child ul go into here
+			const cbLevelGroupingEl = document.createElement('div');
+			cbLevelGroupingEl.className = 'division-group';
+
+			parentCheckboxEl.innerHTML = `
+            <input
+                type="checkbox"
+                name="${sch[i - 1].division}"
+                id="${sch[i - 1].division}"
+                class="parent-checkbox"
+                value="${sch[i - 1].division}"
+          />
+          <label class="level-label" for="${sch[i - 1].division}">${
+				sch[i - 1].division
+			}</label>`;
+			cbLevelGroupingEl.appendChild(parentCheckboxEl);
+			generateChildCheckboxMenu(schForSubmenu, cbLevelGroupingEl);
+			checkboxListEl.appendChild(cbLevelGroupingEl);
+
+			currentDivision = sch[i].division;
+			currentLevel = sch[i].level;
+			schForSubmenu.push(sch[i]);
+			console.log(cbLevelGroupingEl);
+
+			checkboxesEl.appendChild(checkboxListEl);
+		}
+	}
+
+	function generateChildCheckboxMenu(sch, group) {
+		const childCheckboxList = document.createElement('ul');
+		childCheckboxList.className = '.children-checkboxes';
+
+		for (let i = 0; i < sch.length; i++) {
+			childCheckboxList.innerHTML += `
+              <li class="child-cb">  
+							<input
+                type="checkbox"
+                name="${sch[i].CBname}"
+                id="${sch[i].CBname}"
+                class="child-checkbox dynamic-cb"
+                value="${sch[i].level}"
+              />
+              <label class="level-label" for="${sch[i].CBname}">${sch[i].level}</label>
+							</li>
+        `;
+		}
+		group.appendChild(childCheckboxList);
+		schForSubmenu = [];
+	}
+
 	let checkboxes = document.querySelectorAll('.dynamic-cb');
 
 	checkboxes.forEach((checkbox) => {
 		checkbox.addEventListener('change', (event) => {
 			checkboxStatusCheck(event.target);
 		});
-	});
-
-	selectLevelsButton.addEventListener('click', function () {
-		openSelectMenu();
-	});
-
-	getSchButton.addEventListener('click', () => outputSchedules(fullSchedule));
-
-	clearSchedulesButton.addEventListener('click', function () {
-		clearSchedules();
-		uncheckAll();
 	});
 
 	function checkboxStatusCheck(activeBox) {
@@ -62,94 +149,6 @@ getFullSchedule().then((schedule) => {
 			checkbox.checked = false;
 			checkbox.indeterminate = false;
 		});
-	}
-});
-
-function generateCheckboxes(sch) {
-	// checkbox container - append to this as each level generated
-	const checkboxesEl = document.getElementById('checkboxes-container');
-
-	const checkboxListEl = document.createElement('ul');
-	checkboxListEl.id = 'level-checkboxes';
-
-	let currentDivision = sch[0].division;
-	let currentLevel = sch[0].level;
-
-	let schForSubmenu = [];
-
-	for (let i = 0; i < sch.length; i++) {
-		console.log('loop#' + i);
-
-		if (
-			i === 0 ||
-			(sch[i].division === currentDivision && sch[i].level === currentLevel)
-		) {
-			if (i === 0) {
-				schForSubmenu.push(sch[i]);
-			} else {
-				continue;
-			}
-		} else if (
-			sch[i].division === currentDivision &&
-			sch[i].level !== currentLevel
-		) {
-			schForSubmenu.push(sch[i]);
-			currentLevel = sch[i].level;
-			console.log(schForSubmenu);
-		} else {
-			let divisionNameLC = sch[i - 1].division;
-			divisionNameLC.toLowerCase();
-
-			const parentCheckboxEl = document.createElement('li');
-			parentCheckboxEl.className = 'parent-cb';
-
-			// level li (checkbox and label) and child ul go into here
-			const cbLevelGroupingEl = document.createElement('div');
-			cbLevelGroupingEl.className = 'division-group';
-
-			parentCheckboxEl.innerHTML = `
-            <input
-                type="checkbox"
-                name="${divisionNameLC}"
-                id="${divisionNameLC}"
-                class="parent-checkbox"
-                value="${sch[i - 1].division}"
-          />
-          <label class="level-label" for="${divisionNameLC}">${
-				sch[i - 1].division
-			}</label>`;
-			cbLevelGroupingEl.appendChild(parentCheckboxEl);
-			generateChildCheckboxMenu(schForSubmenu, cbLevelGroupingEl);
-			checkboxListEl.appendChild(cbLevelGroupingEl);
-
-			currentDivision = sch[i].division;
-			currentLevel = sch[i].level;
-			schForSubmenu.push(sch[i]);
-			console.log(cbLevelGroupingEl);
-		}
-	}
-	checkboxesEl.appendChild(checkboxListEl);
-
-	function generateChildCheckboxMenu(sch, group) {
-		const childCheckboxList = document.createElement('ul');
-		childCheckboxList.className = '.children-checkboxes';
-
-		for (let i = 0; i < sch.length; i++) {
-			childCheckboxList.innerHTML += `
-              <li class="child-cb">  
-							<input
-                type="checkbox"
-                name="${sch[i].CBname}"
-                id="${sch[i].CBname}"
-                class="child-checkbox dynamic-cb"
-                value="${sch[i].level}"
-              />
-              <label class="level-label" for="${sch[i].CBname}">${sch[i].level}</label>
-							</li>
-        `;
-		}
-		group.appendChild(childCheckboxList);
-		schForSubmenu = [];
 	}
 }
 
