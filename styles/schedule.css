@@ -4,7 +4,7 @@
 	right: 0;
 	margin: auto;
 	margin-top: 3em;
-	max-width: 65%;
+	max-width: 600px;
 	background: hsl(195 74% 85%);
 	padding: 1em;
 	border-radius: 10px;
@@ -37,7 +37,7 @@
 }
 
 .division-group {
-	flex: 1 1 150px;
+	flex: 1 0 100px;
 }
 
 #level-checkboxes ul {
