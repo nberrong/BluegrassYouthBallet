@@ -6,8 +6,6 @@ const selectLevelsButton = document.getElementById('select-levels-btn');
 
 const clearSchedulesButton = document.getElementById('clear-sch-btn');
 
-let checkboxes = document.querySelectorAll('.dynamic-cb');
-
 getFullSchedule().then((schedule) => {
 	const fullSchedule = formatSchedule(schedule);
 
@@ -15,11 +13,6 @@ getFullSchedule().then((schedule) => {
 
 	selectLevelsButton.addEventListener('click', function () {
 		openSelectMenu();
-	});
-
-	clearSchedulesButton.addEventListener('click', function () {
-		clearSchedules();
-		uncheckAll();
 	});
 
 	const getSchButton = document.getElementById('get-schedule-btn');
@@ -70,7 +63,7 @@ function generateCheckboxes(sch) {
                 type="checkbox"
                 name="${sch[i - 1].division}"
                 id="${sch[i - 1].division}"
-                class="parent-checkbox"
+                class="parent-checkbox dynamic-cb"
                 value="${sch[i - 1].division}"
           />
           <label class="level-label" for="${sch[i - 1].division}">${
@@ -83,7 +76,6 @@ function generateCheckboxes(sch) {
 			currentDivision = sch[i].division;
 			currentLevel = sch[i].level;
 			schForSubmenu.push(sch[i]);
-			console.log(cbLevelGroupingEl);
 
 			checkboxesEl.appendChild(checkboxListEl);
 		}
@@ -117,6 +109,11 @@ function generateCheckboxes(sch) {
 		checkbox.addEventListener('change', (event) => {
 			checkboxStatusCheck(event.target);
 		});
+	});
+
+	clearSchedulesButton.addEventListener('click', function () {
+		clearSchedules();
+		uncheckAll();
 	});
 
 	function checkboxStatusCheck(activeBox) {
@@ -190,7 +187,7 @@ function outputSchedules(sch) {
 			filterSchByDivision(sch, parentCB.value);
 		} else {
 			let checkboxChildren = document.querySelectorAll(
-				`[name^="${parentCB.name}-"]`
+				`[name^="${parentCB.name}_"]`
 			);
 			if (checkboxChildren.length > 0) {
 				checkboxChildren.forEach((childCB) => {
