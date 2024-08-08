@@ -285,7 +285,7 @@ function buildTable(data) {
 	let caption = newTable.createCaption();
 	caption.textContent = data[0].level;
 
-	let tableHead = newTbody.insertRow(0);
+	let tableHead = newTbody.insertRow();
 	tableHead.outerHTML = `<th colspan="5">${data[0].comment}</th>`;
 
 	for (let i = 0; i < data.length; i++) {
@@ -297,7 +297,6 @@ function buildTable(data) {
 						<td data-cell="instructor" class="instructor-cell">${data[i].instructor}</td>
 				   </tr>
 		`;
-		newTbody.insertRow(0);
 	}
 	tableDiv.appendChild(newTable);
 	schContainer.appendChild(tableDiv);

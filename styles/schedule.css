@@ -13,6 +13,9 @@
 		rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
+#selected-btn-wrapper {
+	margin-top: 0.6em;
+}
 #open-selectmenu-wrapper {
 	display: flex;
 	justify-content: center;
@@ -119,8 +122,7 @@ th {
 	text-align: center;
 	font-size: 0.95rem;
 	font-weight: lighter;
-	padding-top: 0;
-	padding-bottom: 0.7rem;
+	padding: 0 0.5rem 0.7rem 0.5rem;
 }
 
 td {
