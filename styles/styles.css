@@ -9,9 +9,69 @@ html {
 }
 
 body {
+	font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+		Tahoma, sans-serif;
+	background: hsl(0 0% 100% / 0.9);
+	text-align: center;
+	color: #1f1f1e;
 	margin: 0;
+	padding: 0;
 	overflow-x: hidden;
 	height: 100%;
+}
+
+main {
+	margin-top: 7.5em;
+}
+
+#logo-header {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	margin: auto;
+}
+
+#BYB-name-header {
+	font-family: 'Playwrite PE', cursive;
+	font-size: 3.75em;
+	font-weight: 300;
+	font-style: normal;
+	color: #0071bc;
+	margin: 0;
+	padding: 0 0.5em;
+}
+
+#BYB-tagline {
+	font-family: 'Comfortaa', sans-serif;
+	font-size: 1.75em;
+	font-weight: 300;
+	font-style: normal;
+	margin-top: 2em;
+	text-align: center;
+}
+
+#BYB-butterfly {
+	width: 18em;
+	margin: 3em 0;
+}
+
+.gold-text {
+	color: #fbb038;
+}
+
+.blue-text {
+	color: #0071bc;
+}
+
+h1 {
+	font-family: 'Neuton', serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 2rem;
+	color: #0071bc;
+	padding: 0 1.5em 0 1.5em;
+	line-height: 1;
 }
 
 .neuton-extralight {
@@ -50,69 +110,29 @@ body {
 	font-style: italic;
 }
 
-body {
-	font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
-		Tahoma, sans-serif;
-	background: hsl(0 0% 100% / 0.9);
-	text-align: center;
-	color: #1f1f1e;
-	margin: 0;
-	padding: 0;
+@media (max-width: 900px) {
+	main {
+		margin-top: 7.5em;
+	}
+
+	#BYB-butterfly {
+		width: 14em;
+		margin: 1em 0;
+	}
+
+	#BYB-name-header {
+		font-size: 3em;
+		line-height: 1.6;
+	}
+
+	#BYB-tagline {
+		font-size: 1.75em;
+		margin-top: 1em;
+	}
 }
 
-main {
-	margin-top: 7.5em;
-}
-
-#logo-header {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-}
-
-#BYB-name-header {
-	font-family: 'Playwrite PE', cursive;
-	font-size: 3.75em;
-	font-weight: 300;
-	font-style: normal;
-	color: #0071bc;
-	margin: 1.25em 0;
-}
-
-#BYB-tagline {
-	font-family: 'Comfortaa', sans-serif;
-	font-size: 2.5em;
-	font-weight: 300;
-	font-style: normal;
-}
-
-#BYB-butterfly {
-	width: 18.75em;
-	margin: 0;
-}
-
-.gold-text {
-	color: #fbb038;
-}
-
-.blue-text {
-	color: #0071bc;
-}
-
-h1 {
-	font-family: 'Neuton', serif;
-	font-weight: 400;
-	font-style: normal;
-	font-size: 2.75rem;
-	color: #0071bc;
-	padding: 0 1.5em 0 1.5em;
-	line-height: 1;
-}
-
-#index-main {
-	background-image: url('/assets/photos/dia.jpeg') no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+@media (max-width: 450px) {
+	main {
+		margin-top: 6em;
+	}
 }

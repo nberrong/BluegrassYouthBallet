@@ -19,7 +19,7 @@
 #open-selectmenu-wrapper {
 	display: flex;
 	justify-content: center;
-	gap: 0.5em;
+	gap: 1em;
 	margin: auto;
 }
 
