@@ -16,7 +16,10 @@ getFullSchedule().then((schedule) => {
 	});
 
 	const getSchButton = document.getElementById('get-schedule-btn');
-	getSchButton.addEventListener('click', () => outputSchedules(fullSchedule));
+	getSchButton.addEventListener('click', () => {
+		outputSchedules(fullSchedule);
+		scrollToTop();
+	});
 });
 
 function generateCheckboxes(sch) {
@@ -305,6 +308,12 @@ function buildTable(data) {
 
 function clearSchedules() {
 	document.getElementById('schedules-container').innerHTML = '';
+}
+
+function scrollToTop() {
+	setTimeout(() => {
+		window.scrollTo(0, 0);
+	}, 0);
 }
 
 // Function to add table ARIA from https://adrianroselli.com/2018/05/functions-to-add-aria-to-tables-and-lists.html

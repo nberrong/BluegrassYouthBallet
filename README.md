@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is my capstone project for CODE:You. I chose to implement this project because as the parent of two Bluegrass Youth Ballet students, I find it difficult to view and compare class schedules on BYB's website. Students are expected to make up missed classes, and the website does not make it easy to view classes schedules for different levels to find a makeup class. This is the problem that this project aims to help solve.
+This is my capstone project for CODE:You's Web Development pathway. I chose to implement this project because as the parent of two Bluegrass Youth Ballet students, I find it difficult to view and compare class schedules on BYB's website. Students are expected to make up missed classes, and the website does not make it easy to view classes schedules for different levels to find a makeup class. This is the problem that this project aims to help solve.
 
 The project utilizes the Google Sheets API to retrieve BYB's class schedule data for use in the web app. The Class Schedules page has two buttons – one to select class levels to display and one to clear any generated schedules. When the user clicks the Select Button, the app generates a menu of checkboxes using the data from the Google Sheet. The user can select all classes from either an entire division or individual levels, and then click to display the chosen class schedules. The app filters and generates the schedules based on the user's input.
 
@@ -17,7 +17,7 @@ The resources I used for this project are as follows:
 - [Fonts](https://fonts.google.com/)
   - The fonts of this web application are provided by fonts.google.com
 
-### Project Overview
+## Project Overview
 
 The project is organized as follows:
 

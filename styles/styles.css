@@ -111,17 +111,23 @@ h1 {
 	}
 
 	#BYB-butterfly {
-		width: 14em;
+		width: 12em;
 		margin: 1em 0;
 	}
 
 	#BYB-name-header {
-		font-size: 3em;
+		font-size: 2.6em;
 		line-height: 1.6;
 	}
 
 	#BYB-tagline {
 		font-size: 1.75em;
 		margin: 0.5em 0 1.5em 0;
+	}
+}
+
+@media (max-width: 475px) {
+	main {
+		margin-top: 6em;
 	}
 }

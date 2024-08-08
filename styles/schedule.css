@@ -182,7 +182,8 @@ tbody tr:nth-child(odd) {
 
 @media (max-width: 475px) {
 	#schedule-heading {
-		font-size: 2.1em;
+		font-size: 2.8em;
+		margin-top: 0em;
 	}
 
 	#level-select-menu {
@@ -203,8 +204,13 @@ tbody tr:nth-child(odd) {
 		align-items: flex-start;
 	}
 
+	.division-group {
+		margin-bottom: 0.5em;
+	}
+
 	#level-checkboxes {
 		display: block;
+		line-height: 1.4em;
 	}
 
 	#schedules-container {
@@ -215,7 +221,7 @@ tbody tr:nth-child(odd) {
 	td {
 		display: grid;
 		gap: 0.5rem;
-		padding: 0.4rem 0.7rem;
+		padding: 0rem 0.7rem;
 	}
 
 	td:first-child {
