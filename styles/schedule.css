@@ -16,7 +16,7 @@
 #open-selectmenu-wrapper {
 	display: flex;
 	justify-content: center;
-	gap: 0.5em;
+	gap: 1em;
 	margin: auto;
 }
 
@@ -159,7 +159,7 @@ tbody tr:nth-child(odd) {
 	white-space: nowrap;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
 	#level-select-menu {
 		max-width: 80%;
 		position: absolute;
@@ -172,6 +172,17 @@ tbody tr:nth-child(odd) {
 		display: none;
 		flex-wrap: wrap;
 		max-width: 100%;
+	}
+
+	#open-selectmenu-wrapper {
+		flex-direction: column;
+		margin: 2em 0 1.5em 0;
+	}
+
+	#select-levels-btn,
+	#clear-sch-btn {
+		margin: auto;
+		align-items: flex-start;
 	}
 
 	#level-checkboxes {
