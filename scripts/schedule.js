@@ -54,7 +54,6 @@ function generateCheckboxes(sch) {
 			const parentCheckboxEl = document.createElement('li');
 			parentCheckboxEl.className = 'parent-cb';
 
-			// level li (checkbox and label) and child ul go into here
 			const cbLevelGroupingEl = document.createElement('div');
 			cbLevelGroupingEl.className = 'division-group';
 

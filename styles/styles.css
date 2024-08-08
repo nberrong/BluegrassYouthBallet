@@ -58,10 +58,12 @@ main {
 
 .gold-text {
 	color: #fbb038;
+	font-weight: 1000;
 }
 
 .blue-text {
 	color: #0071bc;
+	font-weight: 1000;
 }
 
 h1 {
@@ -72,42 +74,6 @@ h1 {
 	color: #0071bc;
 	padding: 0 1.5em 0 1.5em;
 	line-height: 1;
-}
-
-.neuton-extralight {
-	font-family: 'Neuton', serif;
-	font-weight: 200;
-	font-style: normal;
-}
-
-.neuton-light {
-	font-family: 'Neuton', serif;
-	font-weight: 300;
-	font-style: normal;
-}
-
-.neuton-regular {
-	font-family: 'Neuton', serif;
-	font-weight: 400;
-	font-style: normal;
-}
-
-.neuton-bold {
-	font-family: 'Neuton', serif;
-	font-weight: 700;
-	font-style: normal;
-}
-
-.neuton-extrabold {
-	font-family: 'Neuton', serif;
-	font-weight: 800;
-	font-style: normal;
-}
-
-.neuton-regular-italic {
-	font-family: 'Neuton', serif;
-	font-weight: 400;
-	font-style: italic;
 }
 
 @media (max-width: 900px) {
@@ -131,7 +97,7 @@ h1 {
 	}
 }
 
-@media (max-width: 450px) {
+@media (max-width: 475px) {
 	main {
 		margin-top: 6em;
 	}

@@ -7,7 +7,7 @@
 	left: 0;
 	right: 0;
 	margin: auto;
-	margin-top: 3em;
+	margin-top: 2em;
 	max-width: 600px;
 	background: hsl(195 74% 85%);
 	padding: 1em;
@@ -78,13 +78,13 @@
 	font-size: 15px;
 	font-weight: 400;
 	border-radius: 25px;
-	margin: 2em 0.5em;
+	margin: 1.5em 0em;
 	cursor: pointer;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #get-schedule-btn {
-	margin: 1em 0 0.5em 0;
+	margin: 1.1em 0 0.75em 0;
 }
 
 #select-levels-btn:hover,
@@ -104,7 +104,7 @@
 	flex-direction: row;
 	gap: 1.5em;
 	justify-content: space-around;
-	padding: 1.5em;
+	padding: 0.5em 1.5em;
 }
 
 .table-wrap {
@@ -131,7 +131,7 @@ th {
 
 td {
 	text-align: left;
-	padding: 0.7rem;
+	padding: 0.7rem 0.4rem;
 }
 
 caption {
@@ -177,7 +177,7 @@ tbody tr:nth-child(odd) {
 	}
 }
 
-@media (max-width: 450px) {
+@media (max-width: 475px) {
 	#schedule-heading {
 		font-size: 2.1em;
 	}
@@ -212,7 +212,7 @@ tbody tr:nth-child(odd) {
 	td {
 		display: grid;
 		gap: 0.5rem;
-		padding: 0.2rem 0.7rem;
+		padding: 0.4rem 0.7rem;
 	}
 
 	td:first-child {

@@ -343,7 +343,7 @@ a#navbar_logo_link {
 	}
 }
 
-@media (max-width: 450px) {
+@media (max-width: 475px) {
 	#navbar_logo_text {
 		display: none;
 	}
