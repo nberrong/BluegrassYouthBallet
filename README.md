@@ -8,6 +8,8 @@ The project utilizes the Google Sheets API to retrieve BYB's class schedule data
 
 The two buttons remain above the schedules. The user can add additional selections by clicking the Select Levels button. Previous selections will remain checked in the Select Levels menu, and the user can change the selections as desired. If the user clicks the Clear All Schedules button, all generated schedules are removed from the page and the Select Levels checkbox selections are also cleared.
 
+BYB's official website can be viewed at (https://www.bluegrassyouthballet.org).
+
 ## Resources
 
 The resources I used for this project are as follows:
@@ -53,7 +55,7 @@ cd BluegrassYouthBallet
 
 4. A "config.js" file is necessary to run the project and must be placed in the scripts folder. File will be provided via Slack DM upon request.
 
-5. Open the project directory in VsCode:
+5. Open the project directory in VS Code:
 
 ```bash
 code .
