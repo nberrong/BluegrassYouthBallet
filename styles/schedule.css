@@ -16,7 +16,7 @@
 #open-selectmenu-wrapper {
 	display: flex;
 	justify-content: center;
-	gap: 1em;
+	gap: 0.5em;
 	margin: auto;
 }
 
@@ -113,11 +113,18 @@ table {
 }
 
 th {
-	display: none;
+	background-color: #127bbf;
+	color: white;
+	width: 100%;
+	text-align: center;
+	font-size: 0.95rem;
+	font-weight: lighter;
+	padding-top: 0;
+	padding-bottom: 0.7rem;
 }
 
-th,
 td {
+	text-align: left;
 	padding: 0.7rem;
 }
 
@@ -128,12 +135,7 @@ caption {
 	font-size: 1.35rem;
 	font-weight: 600;
 	border-radius: 10px 10px 0 0;
-	padding: 0.7rem 0;
-}
-
-th,
-td {
-	text-align: left;
+	padding: 0.7rem 0 0.5rem 0;
 }
 
 tbody tr:nth-child(odd) {

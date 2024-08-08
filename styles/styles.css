@@ -108,3 +108,11 @@ h1 {
 	padding: 0 1.5em 0 1.5em;
 	line-height: 1;
 }
+
+#index-main {
+	background-image: url('/assets/photos/dia.jpeg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}

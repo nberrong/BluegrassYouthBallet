@@ -285,6 +285,9 @@ function buildTable(data) {
 	let caption = newTable.createCaption();
 	caption.textContent = data[0].level;
 
+	let tableHead = newTbody.insertRow(0);
+	tableHead.outerHTML = `<th colspan="5">${data[0].comment}</th>`;
+
 	for (let i = 0; i < data.length; i++) {
 		newTbody.innerHTML += `<tr>
 						<td data-cell="day" class="day-cell">${data[i].day.substring(0, 3)}</td> 
