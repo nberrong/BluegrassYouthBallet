@@ -51,7 +51,7 @@ git clone https://github.com/nberrong/BluegrassYouthBallet
 cd BluegrassYouthBallet
 ```
 
-4. A "config.js" file is necessary to run the project and will be provided to the evaluator. This file must be placed in the scripts folder.
+4. A "config.js" file is necessary to run the project and must be placed in the scripts folder. File will be provided via Slack DM upon request.
 
 5. Open the project directory in VsCode:
 

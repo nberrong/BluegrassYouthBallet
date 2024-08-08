@@ -1,5 +1,6 @@
 #schedule-heading {
-	font-size: 2.5em;
+	font-size: 2.6em;
+	margin-top: 3em;
 }
 
 #level-select-menu {
@@ -8,8 +9,8 @@
 	right: 0;
 	margin: auto;
 	margin-top: 2em;
-	max-width: 600px;
-	background: hsl(195 74% 85%);
+	max-width: 700px;
+	background: hsl(37 96% 80%);
 	padding: 1em;
 	border-radius: 10px;
 	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
@@ -170,7 +171,9 @@ tbody tr:nth-child(odd) {
 @media (max-width: 900px) {
 	#schedule-heading {
 		font-size: 2.25em;
+		margin-top: 3.5em;
 	}
+
 	#level-select-menu {
 		max-width: 80%;
 		position: absolute;
