@@ -69,7 +69,7 @@
 	background-color: hsl(204 100% 37%);
 	color: white;
 	font-size: 15px;
-	font-weight: 200;
+	font-weight: 400;
 	border-radius: 25px;
 	margin: 2em 0.5em;
 	cursor: pointer;
@@ -109,6 +109,7 @@ table {
 	border-collapse: collapse;
 	background: hsl(37 96% 80%);
 	border-radius: 0 0 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 th {
@@ -168,8 +169,8 @@ tbody tr:nth-child(odd) {
 @media (max-width: 450px) {
 	#level-select-menu {
 		margin: 1.5em;
-		display: flex;
-		flex-wrap: nowrap;
+		display: none;
+		flex-wrap: wrap;
 		max-width: 100%;
 	}
 
