@@ -53,7 +53,7 @@ git clone https://github.com/nberrong/BluegrassYouthBallet
 cd BluegrassYouthBallet
 ```
 
-4. A "config.js" file is necessary to run the project and must be placed in the scripts folder. File will be provided via Slack DM upon request.
+4. A "config.js" file is necessary to run the project and must be placed in the scripts folder. A link to download this file was included in the CODE:You submission form, or the file can be provided via Slack DM upon request.
 
 5. Open the project directory in VS Code:
 
@@ -68,4 +68,4 @@ code .
 ## Acknowledgments
 
 - Kevin Powell's CSS tutorials on YouTube (https://www.youtube.com/@KevinPowell) were extremely helpful when developing this project.
-- A special thank you to CODE:You mentors Michael Puckett and Khyrstina Smith, whose knowledge, experience and willingness to help made this project possible!
+- A special thank you to CODE:You mentors Michael Puckett and Khyrstina Smith, whose knowledge, experience, and willingness to help made this project possible!
